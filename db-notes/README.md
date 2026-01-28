@@ -76,12 +76,9 @@ DB 공부 노트
 
 
 
-5\. 타입
+5\. 
 --------
 ```
-오라클에서
-    SYSDATE는 DATE 타입으로 초(second)까지 저장하지만,
-    SYSTIMESTAMP는 TIMESTAMP 타입으로 나노초(nanosecond) 단위까지 저장
 ```
 
 
