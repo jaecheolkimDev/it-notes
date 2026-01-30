@@ -65,6 +65,3 @@ Unstash 하기 (불러오기)
 ```
 추가 후 `bash : $ git rm -r -f --cached .idea/` 명령어 입력을 통해 git 추적중이던 캐시를 삭제
 ```
-
-
-
