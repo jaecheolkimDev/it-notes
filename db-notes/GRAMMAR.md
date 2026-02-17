@@ -5,7 +5,10 @@ DB 문법 공부 노트
 --------
 ```
 1) 오라클
- NULLIF(expr1, expr2) : expr1과 expr2가 같으면 NULL을 반환하고, 같지 않으면 expr1을 반환
+ NULLIF(expr1, expr2)   : expr1과 expr2가 같으면 NULL을 반환하고, 같지 않으면 expr1을 반환
+ LISTAGG(컬럼, '구분자') WITHIN GROUP (ORDER BY 정렬기준)
+    : 여러 행의 한 컬럼 값을 특정 구분자(쉼표 등)로 연결할때 사용합니다.
+      그룹별 데이터를 하나의 문자열로 합칠 수 있습니다. 
 ```
 
 2\. 

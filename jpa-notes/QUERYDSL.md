@@ -42,7 +42,7 @@ IntelliJ 기준: File > Project Structure > Modules에서 target/generated-sourc
 4. 제대로 생성됐는지 확인하는 법
 컴파일 후 아래 경로를 확인해 보세요.
 
-target/generated-sources/annotations/com/example/domain/QMember.java
+target/generated-sources/annotations/{엔티티 패키지 경로}/QMember.java
 
 만약 이 파일이 없다면 pom.xml 설정(특히 classifier: jakarta)이나 maven-compiler-plugin 설정이 꼬인 것입니다.
 ```

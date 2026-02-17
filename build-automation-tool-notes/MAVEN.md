@@ -59,3 +59,9 @@ generate-resources  : 리소스 생성
 process-resources   : 설정 파일들을 target 폴더로 복사
 compile             : 실제 자바 소스 코드를 컴파일하여 바이트코드로 변환
 ```
+
+3\. scope
+----------------
+```
+- provided  : "이 라이브러리는 실행 환경(Tomcat이나 서버)에 이미 있으니 빌드 결과물에는 넣지 마라"는 뜻입니다.
+```
