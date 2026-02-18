@@ -104,20 +104,12 @@ ELB를 사용하기 전의 아키텍처는 사용자들이 EC2의 IP 주소 또�
    - 트래픽 라우팅 대상
     - Application/Classic Load Balancer에 대한 별칭
     - 아시아 태평양(서울)
-     - ELB의 DNS name을 선택(ex. dualstack.practice-1906883918.ap-northeast-2.elb.amazonaws.com)
-     
+     - ELB의 DNS name을 선택(ex. dualstack.practice-1906883918.ap-northeast-2.elb.amazonaws.com)  
+```
 [HTTPS 적용을 위해 인증서 발급받기]
-1. AWS Certificate Manager 서비스로 들어가서 인증서 요청 버튼 누르기
-2. 인증서 요청하기
- - 퍼블릭 인증서 요청
- - 도메인 이름 작성(ex. practice123.or.kr)
- - 검증 방법    : DNS 검증 - 권장
- - 키 알고리즘   : RSA 2048
-3. 인증서 검증하기
- - 내가 소유한 도메인이 맞는 지 검증하는 과정이다.
- - Route 53에서 레코드 생성 > 레코드 생성
-  - 3분 정도 기다렸다가 AWS Certificate Manager 창을 새로고침하면 검증이 완료된다. (길게는 10분 정도 소요될 때도 있다.)
-  
+
+[ACM.md 파일 참고](./ACM.md)
+```
 [ELB에 HTTPS 설정하기]
 1. ELB의 리스너 및 규칙 수정하기
  1) 로드밸런스 > 리스너 추가
