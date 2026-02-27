@@ -1,6 +1,8 @@
 Querydsl 공부 노트
 ===========================================
 
+JPA를 사용할때 동적쿼리나 복잡한 쿼리들을 자바로 만들어 낼 수 있도록 도와주는 라이브러리.
+JPQL의 단점을 보완해서 문자가 아닌 코드로 작성함.
 
 1\. 타입 안정성(Type Safety) - QClass(QEntityName.java)
 -----------------------
@@ -26,7 +28,7 @@ queryFactory.selectFrom(member).where(member.username.eq(name)).fetch();
 2. 빌드 과정에서 일어나는 일
 Maven compile을 실행하면 다음과 같은 순서로 진행됩니다.
 
-**APT(Annotation Processing Tool)**가 작동합니다.
+APT(Annotation Processing Tool)가 작동합니다.
 
 프로젝트 내의 @Entity 어노테이션을 찾습니다.
 

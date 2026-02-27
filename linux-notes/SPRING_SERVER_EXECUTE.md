@@ -44,6 +44,6 @@ $ java -jar linux-springboot-0.0.1-SNAPSHOT.jar >> app.log 2>&1
 ```
 윈도우 방화벽이 WSL의 네트워크 트래픽을 차단하고 있는지 확인하기.
 
-이 경우 아래 명령어를 **Windows 파워쉘(관리자 권한)**에서 실행하여 WSL의 미러링된 트래픽을 허용해 주어야 합니다.
+이 경우 아래 명령어를 Windows 파워쉘(관리자 권한)에서 실행하여 WSL의 미러링된 트래픽을 허용해 주어야 합니다.
 New-NetFirewallRule -DisplayName "WSL Mirrored Networking" -Direction Inbound -Action Allow -Protocol TCP
 ```

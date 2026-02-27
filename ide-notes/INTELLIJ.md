@@ -41,11 +41,11 @@ IntelliJ 공부 note
 ```
 1. 사용법
 Stash 만들기 (보관하기)
- 1) 상단 메뉴에서 Git -> Uncommitted Changes -> **Stash Changes...**를 선택합니다.
+ 1) 상단 메뉴에서 Git -> Uncommitted Changes -> Stash Changes...를 선택합니다.
  2) Message 칸에 나중에 알아보기 쉬운 이름을 적습니다 (예: "로그인 기능 작업 중").
  3) Create Stash 버튼을 누르면 끝! (목록에서 파일들이 사라지며 워킹 디렉토리가 깨끗해집니다.)
 Unstash 하기 (불러오기)
- 1) 상단 메뉴에서 Git -> Uncommitted Changes -> **Unstash Changes...**를 선택합니다.
+ 1) 상단 메뉴에서 Git -> Uncommitted Changes -> Unstash Changes...를 선택합니다.
  2) 보관했던 목록 중 복구할 항목을 선택합니다.
  3) Pop Stash를 누르면 불러오면서 목록에서 삭제되고, Apply Stash를 누르면 불러온 뒤에도 보관함에 남겨둡니다.
  
