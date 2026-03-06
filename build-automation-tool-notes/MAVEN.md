@@ -68,8 +68,12 @@ compile             : 실제 자바 소스 코드를 컴파일하여 바이트�
 ```
 mvn clean install
 mvn clean compile
-install  : 프로젝트를 컴파일, 테스트, 패키징(jar/war)한 후 로컬 저장소(~/.m2/repository)에 결과물을 설치하여 
-           다른 프로젝트에서 종속성으로 사용할 수 있게 함.
+install : 프로젝트를 컴파일, 테스트, 패키징(jar/war)한 후 로컬 저장소(~/.m2/repository)에 결과물을 설치하여
+          다른 프로젝트에서 종속성으로 사용할 수 있게 함.
+          `src/test/java` 폴더 안에 테스트 코드들을 테스트함.
+clean   : 이전 빌드 기록을 지우고
+package : 소스코드를 컴파일해서 실행 파일로 묶어줍니다.
+          `src/test/java` 폴더 안에 테스트 코드들을 테스트함.
 ```
 
 
@@ -110,6 +114,25 @@ install  : 프로젝트를 컴파일, 테스트, 패키징(jar/war)한 후 로�
     예: maven-compiler-plugin (자바 컴파일 버전 지정), spring-boot-maven-plugin (실행 가능한 Jar 생성).
 
 5. 알아두면 유용한 고급 태그
-    <repositories>: 메이븐 중앙 저장소 외에 라이브러리를 받아올 추가 서버 주소를 지정합니다.
+    <repositories>: 라이브러리를 받아올 서버 주소를 명시적으로 지정합니다.
     <dependencyManagement>: 멀티 모듈 프로젝트에서 의존성 버전을 한곳에서 관리할 때 사용합니다. 실제 의존성을 추가하는 것이 아니라 "버전 정보만" 미리 정의해 두는 역할입니다.
+```
+
+
+5\. 인텔리제이
+-----------------------
+```
+1) File > Settings > Build, Execution, Deployment > Build Tools > Maven
+        User settings file : 설정 파일
+        Local repository : 로컬 저장소
+    
+2-1) 서버 실행파일 만들기    : mvn clean package -s settings.xml -DskipTests
+    -s          : 설정 파일 강제 지정
+    프로젝트 최상단에 settings.xml을 둠.
+    -DskipTests : 테스트 단계 건너뛰고 빌드하기
+2-2) 결과물 확인   : 프로젝트 폴더 내의 target/ 디렉토리에 가면 프로젝트명-0.0.1-SNAPSHOT.jar 같은 파일이 생겨 있을 겁니다.
+2-3) 서버에서 실행 : 이 파일을 서버로 전송한 뒤, 터미널에서 아래 명령어로 실행합니다.
+        java -jar 파일이름.jar
+        java -jar your-app.jar --spring.profiles.active=prod
+        java -jar target/spring-boot-project-0.0.1-SNAPSHOT.jar --spring.profiles.active=h2
 ```

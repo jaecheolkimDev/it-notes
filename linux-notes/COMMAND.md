@@ -96,6 +96,10 @@
 #### grep — 텍스트에서 특정 패턴을 검색하는 명령어(패턴·대상·옵션이 구성요소)
 - 정의: `grep`은 검색 패턴, 대상 파일, 옵션(-i, -r 등)을 활용해 텍스트를 필터링하는 명령어.
 
+- 주요 옵션:
+    - `-r`  : 하위 디렉토리 전체 검색
+    - `--exclude-dir={lib,log,tmp}` : 제외할 디렉토리 
+    
 - 사용 예시:
     - `$ ls -al | grep media`                       : ls -al의 출력값 중에서 media가 들어간 문장만 출력
     - `$ ls -al | grep bin`                         : ls -al의 출력값 중에서 bin이 들어간 문장만 출력
@@ -104,6 +108,7 @@
     - `$ sudo apt list --installed | grep python`   : |(파이프라인) 앞 쪽 명령어의 출력값 중에서 python이 들어간 문장만 출력 
     - `$ sudo apt list --installed | grep zstd`     : |(파이프라인) 앞 쪽 명령어의 출력값 중에서 zstd이 들어간 문장만 출력
     - `$ ps aux | grep amazon`                      : 실행 중인 모든 프로세스 조회 후 amazon만 검색
+    - `$ grep -r --exclude-dir={lib,log,tmp} "transactionManager" .`    : 하위 디렉토리를 검색하면서 제외할 디렉토리들 추가
     
 ```
 
@@ -123,6 +128,7 @@
     - `$ tail file.txt`: `file.txt`의 마지막 10줄 출력.
     - `$ tail -n 20 file.txt`: `file.txt`의 마지막 20줄 출력.
     - `$ tail -f log.txt`: `log.txt`의 실시간 업데이트 내용 출력.
+    - `$ tail -300f log.txt`: `log.txt`의 실시간 업데이트 내용을 300줄 출력.
     
 - 종료 방법 : ctrl + c
 ```
@@ -444,4 +450,33 @@ $ 명령어 | tee 파일명 : 파이프(|)를 통해 전달된 데이터를 받�
     $ sudo ln -s /var/lib/snapd/snap /snap
 
 5) 재부팅 또는 로그아웃/로그인  : snap의 경로를 시스템이 인식하도록 하기 위해 1회 재부팅을 권장합니다.
+```
+
+
+23) sed (Stream Editor) : sed는 파일을 열지 않고도 텍스트를 검색, 치환, 삭제할 수 있는 도구입니다. 주로 문자열 치환에 가장 많이 쓰입니다.
+```
+주요 특징
+    비대화형: 편집기를 직접 열지 않고 명령행에서 바로 처리합니다.
+    파이프라인(|): 다른 명령어의 출력 결과를 받아 즉석에서 수정할 때 강력합니다.
+
+사용 예시
+    문자열 치환: test.txt 파일에서 "apple"을 "banana"로 바꿀 때
+        $ sed 's/apple/banana/g' test.txt
+    특정 줄 삭제: 3번째 줄만 지우고 싶을 때
+        $ sed '3d' test.txt
+```
+
+
+24) awk (Aho, Weinberger, Kernighan) : awk는 제작자 세 명의 이름 앞 글자를 딴 도구입니다. 
+                                       텍스트를 하나의 데이터베이스처럼 취급하여, 각 줄을 필드(열)로 나누어 처리합니다.
+```
+주요 특징
+    필드 단위 처리: 공백이나 탭으로 구분된 열을 $1, $2 같은 변수로 자유롭게 다룹니다.
+    프로그래밍 기능: 조건문(if), 반복문(for), 산술 연산이 가능합니다.
+
+사용 예시
+    특정 열만 출력: /etc/passwd 파일에서 사용자 이름(1번째 열)만 보고 싶을 때 (구분자 : 기준)
+        $ awk -F: '{ print $1 }' /etc/passwd
+    조건부 필터링: 3번째 열의 값이 500 이상인 줄만 출력할 때
+        $ awk '$3 >= 500 { print $0 }' data.txt
 ```

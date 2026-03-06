@@ -72,3 +72,22 @@ Node.js 기반 도구나 데스크톱 프레임워크를 활용하여 JS 런타�
 2) 브라우저나 Node.js 같은 환경의 도움을 받아 비동기 처리를 효율적으로 수행한다.(콜백, 프로미스, async-await 등)
  - 응답을 기다리지 않고 다음 코드로 넘어가는 비동기 처리를 사용한다.
 ```
+
+
+5\. JavaScript 기반 프레임워크
+--------------------------------------
+```
+명칭	        분류	        기반 언어	핵심 특징
+JavaScript	프로그래밍 언어	-	    모든 것의 기본 (알파벳/문법)
+Node.js	    실행 환경	JavaScript	JS를 컴퓨터에서 실행하게 해줌
+Express.js	프레임워크	JavaScript	서버 기능을 쉽게 쓰게 해줌 (서버 방언)
+Nest.js     프레임워크    JavaScript  서버 기능을 쉽게 쓰게 해줌 (서버 방언)
+Vue.js	    라이브러리	JavaScript	화면을 쉽게 그리게 해줌 (화면 방언)
+React	    라이브러리	JavaScript	화면을 쉽게 그리게 해줌 (화면 방언)
+Next.js	    프레임워크	JavaScript	React 기반의 종합 관리 도구
+
+가볍고 빠르게: Vue.js (화면) + Express.js (서버)
+가장 대중적으로: React (화면) + Express.js (서버)
+대규모 기업용으로: React/Vue (화면) + Nest.js (서버)
+검색 노출이 중요한 웹: Next.js (전체)
+```

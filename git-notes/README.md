@@ -36,7 +36,6 @@ Github(Gitlab, Bitbucket) : Git으로 저장되서 원격 전송된 내역들이
 | `git status`           | git + status                 | 현재 작업 상태(status)를 Git(git)을 통해 조회하는 명령어.          |
 | `git add .`            | git + add + 경로               | 변경된 파일 경로(경로)를 스테이지에 추가(add)하는 명령어.               |
 | `git commit -m "msg"`  | git + commit + -m + 메시지      | 스테이지 내용을 기록(commit)하고 메시지(msg)를 추가(-m)하는 명령어.     |
-| `git push origin main` | git + push + origin + branch | 로컬 브랜치를 원격(origin)의 브랜치(branch)에 업로드(push)하는 명령어. |
 | `git pull origin main` | git + pull + origin + branch | 원격(origin) 브랜치(branch) 변경 내용을 가져와 병합(pull)하는 명령어. |
 | `git branch`           | git + branch                 | 브랜치(branch) 목록을 Git(git)으로 조회하는 명령어.              |
 | `git checkout 브랜치명`    | git + checkout + 브랜치         | 지정 브랜치(브랜치)를 체크아웃(checkout)하여 이동하는 명령어.           |
@@ -55,5 +54,11 @@ Github(Gitlab, Bitbucket) : Git으로 저장되서 원격 전송된 내역들이
 ```
 
 
-
-----------------------------------------------------------------------------------------------------
+3\. push
+-------------------------------
+```
+$ git push origin main  : 로컬 브랜치를 원격(origin)의 브랜치(main)에 업로드(push)하는 명령어.
+$ git push -u origin main
+    -u  : --set-upstream    : 현재 브랜치와 원격 브랜치를 '짝꿍(연결)'으로 등록하겠다(서로 추적(Tracking) 관계가 된다)
+                              이 후 부터는 $ git push 또는 $ git pull 만 해도된다.
+```
