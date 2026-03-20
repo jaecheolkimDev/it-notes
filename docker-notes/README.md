@@ -1,13 +1,67 @@
 DOCKER 공부 노트
 ================
 
-0\. 공부할것
+1\. Docker를 사용하면 아래와 같은 장점이 있다.
 -----------------------------
+이식성 : 특정 프로그램을 다른 곳으로 쉽게 옮겨서 설치 및 실행할 수 있는 특성
 ```
-Harbor : 기업의 내부 프로젝트, 또는 공개하고 싶지 않은 개인 프로젝트를 진행하는 경우 사적인 저장소. 
+- 매번 귀찮은 설치 과정을 일일이 거치지 않아도 된다.
+- 항상 일관되게 프로그램을 설치할 수 있다. (버전, 환경 설정, 옵션, 운영 체제 등)
+- 각 프로그램이 독립적인 환경에서 실행되기 때문에 프로그램 간에 서로 충돌이 일어나지 않는다.
 ```
 
-1\. 정리
+
+2\. Docker란?
+-----------------------------
+```
+컨테이너를 사용하여 각각의 프로그램을 분리된 환경에서 실행 및 관리할 수 있는 툴이다. 
+```
+
+
+3\. 컨테이너란?
+-----------------------------
+```
+* 호스트 컴퓨터  : 컨테이너를 포함하고 있는 컴퓨터
+* 컨테이너      : 하나의 컴퓨터 환경 내에서 독립적인 컴퓨터 환경
+* 컨테이너의 독립성 : 독립적인 컴퓨터 환경
+    1) 디스크(저장 공간)   : 각 컨테이너마다 서로 각자의 저장 공간을 가지고 있다. 일반적으로 A 컨테이너 내부에서 B 컨테이너 내부에 있는 파일에 접근할 수 없다. 
+    2) 네트워크(IP, Port) : 각 컨테이너마다 고유의 네트워크를 가지고 있다. 컨테이너는 각자의 IP 주소를 가지고 있다. 
+```
+
+
+4\. 이미지(Image)란?
+-----------------------------
+```
+이미지(Image)는 프로그램을 실행하는 데 필요한 설치 과정, 설정, 버전 정보 등을 포함하고 있다. 즉, 프로그램을 실행하는 데 필요한 모든 것을 포함하고 있다.
+```
+
+
+5\. Dockerhub란?
+-----------------------------
+```
+이미지를 다운로드 할 때 Dockerhub이라는 곳에서 이미지를 다운 받는다. 
+이미지를 저장 및 다운받을 수 있는 저장소 역할을 한다.
+태그명은 dockerhub에서 확인할 수 있다.
+
+* 특정 버전을 나타내는 이름을 태그명이라고 한다.  
+```
+
+
+6\. 볼륨
+-----------------------------
+도커 컨테이너에서 데이터를 영속적으로 저장하기 위한 방법(호스트의 저장 공간 공유해서 사용)
+```
+컨테이너가 가진 문제점
+    Docker를 활용하면 특정 프로그램을 컨테이너로 띄울 수 있다. 이 프로그램에 기능이 추가되면 새로운 이미지를 만들어서 컨테이너를 실행시켜야 한다.
+    이 때, Docker는 기존 컨테이너에서 변경된 부분을 수정하지 않고, 새로운 컨테이너를 만들어서 통째로 갈아끼우는 방식으로 교체를 한다. 
+    이게 효율적이라고 생각했던 것이다. 
+    이런 특징 때문에 기존 컨테이너를 새로운 컨테이너로 교체하면, 기존 컨테이너 내부에 있던 데이터도 같이 삭제된다. 
+    만약 이 컨테이너가 MySQL을 실행시키는 컨테이너였다면 MySQL에 저장된 데이터도 같이 삭제 돼버린다. 
+    따라서 컨테이너 내부에 저장된 데이터가 삭제되면 안 되는 경우에는 볼륨(Volume)이라는 개념을 활용해야 한다.
+```
+
+
+999\. 정리
 -----------------------------
 ```
 Docker에서는 Docker Hub라는 공용 Docker Image 관리 서비스를 제공하고 있다. Hub에 올리는 이미지는 누구나 접근 가능하다.
@@ -26,138 +80,4 @@ Docker : 컨테이너 기반의 오픈소스 가상화 플랫폼
   CPU나 메모리 사용량을 제한할수 있고 호스트의 특정 포트와 연결하거나 호스트의 특정 디렉토리를 내부 디렉토리인 것처럼 사용할 수도 있다.
   
 * Container : 컨테이너는 격리된 공간에서 프로세스가 동작하는 기술이다.(가상화 기술의 하나)
-```
-
-2\. DOCKER 강의 수강 예정
------------------------------
-- 비전공자도 이해할 수 있는 Docker 입문/실전 (https://inf.run/UvNen)
-
-
-
-
-3\. DOCKER 강의
------------------------------
-```
-### 1시간만에 치킨콤보값으로 배우는 서버 배포
-#### 치킨콤보값으로 스프링부트를 수동배포 -> 도커로 배포 -> Github Action CI/CD 순으로 배포과정을 배웁니다.
-[https://www.inflearn.com/course/1%EC%8B%9C%EA%B0%84%EB%A7%8C%EC%97%90-%EC%B9%98%ED%82%A8%EC%BD%A4%EB%B3%B4%EA%B0%92-%EC%84%9C%EB%B2%84-%EB%B0%B0%ED%8F%AC](https://www.inflearn.com/course/1%EC%8B%9C%EA%B0%84%EB%A7%8C%EC%97%90-%EC%B9%98%ED%82%A8%EC%BD%A4%EB%B3%B4%EA%B0%92-%EC%84%9C%EB%B2%84-%EB%B0%B0%ED%8F%AC)
-
-
-- java project를 build하면 .jar파일이 생성됨.
-- 단순 서비스 실행 : java -jar demo-0.0.1-SNAPSHOT.jar
-- 서비스를 실행해도 작동을 안하는데, AWS에 존재하는 보안그룹 설정을 해줘야함.
-- 인스턴스 > 보안 > 보안 그룹 > 인바운드 규칙 편집 > 규칙 추가(포트 범위:8080 , CIDR 블록:0.0.0.0/0)
-- http 로 접속해야함.
-- 콘솔이 켜져있는 동안만 서버가 기동되어 있음.
-- 리눅스의 백그라운드 실행 기능으로 서버를 기동시켜야함.
-
-
-
-
-* CIDR 블록:0.0.0.0/0 :: 모든곳에서 요청 허용을 하겠다.
-* 리눅스의 백그라운드 실행 명령어
-*  - nohup : 터미널이 닫혀도 프로세스가 종료되지 않게 보호
-- & : 쉘 점유 안함
-- nohup.out : 백그라운드 실행된 로그가 저장되는 파일
-* 리눅스 실행중인 8080포트를 사용하는 서비스 알려주는 명령어
-*  - sudo lsof -i:8080
-* 리눅스 실행중인 PID:145601 서비스를 종료하는 명령어
-*  - sudo kill -9 145601
-
-
-* Docker : 서버 배포
-* Client : docker pull , docker build , docker run , docker push
-* Docker_Host : docker daemon(Containers , images)
-* Registry : application image
-
-* Dockerfile : 요리 레시피
-* Build : 조리
-* Docker Image : 조리된 음식(애플리케이션 실행에 필요한 모든 파일과 설정을 담은 정적인 '레시피')
-* Run : 서빙(Docker Image를 가져와 새로운 Container를 생성하고 실행하는 역할을 합니다. Image를 Container로 변환하는 과정)
-* Docker Container : 서빙된 음식(Image를 기반으로 실제로 실행되는 '인스턴스')
-
-* Docker Desktop이 실행중일때
-* Dockerfile(레시피)을 Docker Engine(요리사)이 Docker Build 명령어를 통해
-* Docker Image(조리된 요리)를 만들고 Docker Push 명령어를 통해
-* Docker Hub(메뉴판)에 올리고 Docker Pull 명령어를 통해
-* EC2에 올리고 Docker Run 명령어를 통해
-* Docker Container(서빙된 요리)를 사용자가 사용할 수 있게 만든다.
-
-* Docker 사용 이유 : 어느 OS든 어느 환경에서든 빠르게 사용이 가능하다. 공통된 dockerfile을 사용하기 때문에.
-
-* Dockerfile은 프로젝트에서 Dockerfile 로 만들면 됨.
-  ### 사용할 재료
-    - FROM openjdk:latest  # openjdk 최신버전을 사용하겠다.
-
-  ### 재료를 저장할 위치
-    - COPY build/libs/neo-0.0.1-SNAPSHOT.jar /app/app.jar  # build한 jar파일을 도커 파일(/app/app.jar)에 저장을 하겠다.
-
-  ### 재료를 통해 요리를 할 레시피
-    - ENTRYPOINT ["java", "-jar", "/app/app.jar"]  # java소스로 된 /app/app.jar로 되있는 .jar파일을 실행을 할 것이다.
-
-* Docker Desktop이 실행중이고, Docker engine이 돌아가고 있어야함.
-* 도커 빌드 : docker build -t {본인도커허브ID}/{프로젝트이름} .
-* 도커 푸시 : docker push {본인도커허브ID}/{푸쉬할프로젝트이름}
-
-* 도커 실행 명령어 - docker run -d -p 8080:8080 {본인도커허브ID}/{푸쉬할프로젝트이름}
-* d : 백그라운드실행
-* p : 포트
-* 포트바인딩 - 외부로나가는포트번호:내부실행포트번호
-
-* 도커 플랫폼 지정 빌드
-* docker build --platform linux/amd64/v3 -t {본인도커허브ID}/{프로젝트이름} .
-
-* yml 파일에 대한 보안처리
-* 1. 암호화
-2. 외부 환경변수를 통한 세팅
-3. 도커 허브의 private 기능을 통한 이미지 암호화
-4. 도커 허브 레지스트리를 만들어서 개인 저장소를 구축함
-5. AWS , Google Cloud에서 사용하는 도커 허브의 private 기능 사용
-
-
-* 도커 명령어
-* docker ps -a
-* docker rm {CONTAINER ID} : 도커 컨테이너 삭제
-* docker images
-* docker rmi {IMAGE ID} : 도커 이미지 삭제
-* docker logs {로그파일} : 로그파일 확인
-* docker logs {CONTAINER ID} : 로그파일 확인
-* docker stop {CONTAINER ID} : 실행 중지
-
-* docker run을 했을때 Image가 없으면 Image를 받는다고 했음.
-
-* MySQL 설정 - 도커 띄우기
-* docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=your_password -d -p 3306:3306 mysql:latest
-* 이름 : mysql-container
-* e : 환경변수에 대한 설정
-
-* application.yml
-* <HOST> : public IP 주소 
-* spring:
-  datasource:
-  url: jdbc:mysql://<HOST>:3306/<DATABASE_NAME>
-  driver-class-name: com.mysql.cj.jdbc.Driver
-  username: <USERNAME>
-  password: <PASSWORD>
-  jpa:
-  hibernate:
-  ddl-auto: update
-  show-sql: true
-  properties:
-  hibernate:
-  show_sql: true
-  format_sql: true
-  dialect: org.hibernate.dialect.MySQLDialect
-
-* EC2 > 보안 > 보안 그룹 > 인바운드 규칙 편집 > 규칙 추가
-* MYSQL/Aurora , 공개범위 0.0.0.0/0 > 규칙 저장
-
-* 문제 발생시
-* docker stop {CONTAINER ID} : 실행 중지
-* ./gradlew clean
-* ./gradlew build
-* docker build --platform linux/amd64/v3 -t {본인도커허브ID}/{프로젝트이름} .
-* docker rm {CONTAINER ID} : 도커 컨테이너 삭제
-* docker rmi {IMAGE ID} : 도커 이미지 삭제
-* docker run -d -p 8080:8080 {본인도커허브ID}/{푸쉬할프로젝트이름}
 ```

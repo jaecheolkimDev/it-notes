@@ -36,6 +36,9 @@ DB 공부 노트
 서브쿼리 SUB QUERY : SELECT절의 결과를 WHERE절에서 하나의 변수(상수)처럼 사용하고 싶을 때 사용한다.
 스칼라 서브쿼리 SCALAR : SELECT절에 서브쿼리를 사용하여 하나의 컬럼처럼 사용하고 싶을 때 사용한다.
 
+- 테이블 스페이스  : 데이터가 저장되는 공간
+    - ORA-01653 : 테이블스페이스에서 확장할 수 없습니다.
+
 ```
 
 2\. 인덱스 스캔
@@ -111,4 +114,19 @@ Buffer Cache (데이터 블록 캐싱)    : 쿼리가 처음 실행될 때 필�
 Shared Pool (실행 계획 캐싱)  : Oracle은 쿼리의 SQL 문장 자체를 분석(Parsing)하고 최적의 실행 계획(Execution Plan)을 세우는 데 
                              시간이 걸립니다. 
                              한번 실행된 쿼리는 라이브러리 캐시(Library Cache)에 저장되어 이후 Parsing 과정을 생략합니다.
+```
+
+
+7\. SQL의 3단계 논리
+--------
+TRUE , FALSE , UNKNOWN
+```
+1) NOT IN의 이슈
+    (10, 20, NULL)
+    WHERE A != 10 AND A != 20 AND A != NULL
+    (A != NULL) => UNKNOWN
+    (TRUE AND TRUE AND UNKOWN) => UNKNOWN
+    논리 연산에서 하나라도 'UNKNOWN'이면 전체 조회가 마비됩니다.
+        => NULL은 IS NULL, IS NOT NULL로 조회해야 정상적으로 조회됩니다.
+        => NOT IN에서 NULL이 포함되어 있으면 안됩니다.
 ```
