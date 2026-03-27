@@ -21,6 +21,7 @@ IntelliJ 공부 note
    ctrl + alt + h
    ctrl + shift + h
    ctrl + b(ctrl + click)
+10. ctrl + g          : 라인 이동
 
 
 구현체로 이동 : ctrl + alt + b 2번

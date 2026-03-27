@@ -19,6 +19,7 @@ REDIS(Remote Dictionary Server) 공부 노트
 \# set [key 이름] [value]  
   $ set jaeseong:name "jaeseong park" # 띄워쓰기 해서 저장하려면 쌍따옴표로 묶어주면 됨  
   $ set jaeseong:hobby soccer
+  $ set 1 jscode
 
 ### ✅ 데이터 조회하기 (Key로 Value 값 조회하기)
 \# get [key 이름]  

@@ -97,6 +97,8 @@ $ ps aux            : 리눅스에서 실행 중인 모든 프로세스 조회
  - `%CPU` : CPU 사용률
  - `%MEM` : 메모리 사용률
  - `COMMAND` : 프로세스를 실행할 때 사용한 명령어를 보여줌 → 어떤 프로세스인지 쉽게 파악할 수 있음
+
+$ ps -ef            : 실행 중인 모든 프로세스 목록 보기 (많은 정보가 출력됩니다) 
 ```
 
 
@@ -136,22 +138,4 @@ CentOS  : GPG 키를 저장소(repo) 단위로 관리하는 구조적 차이를 
     - $ find / -name "*.conf" 2>/dev/null  #  표준 에러(stderr)를 휴지통으로 보내기
 모든 출력/에러 버리기   : $ [명령어] > /dev/null 2>&1    # 출력 결과와 에러 메시지를 모두 삭제할 수 있습니다.
 파일 내용 비우기       : $ cat /dev/null > file.log    # 파일의 존재는 유지한 채 내용만 지울 수 있습니다.
-```
-
-
-9\. .vimrc : vi에디터 설정 파일
------------------------
-경로 : ~/.vimrc
-```
-set number          " 왼쪽 줄 번호 표시
-set ai              " 자동 들여쓰기 (Auto Indent)
-set si              " 스마트 들여쓰기 (Smart Indent)
-set cindent         " C언어 스타일 들여쓰기
-set shiftwidth=4    " 자동 들여쓰기 너비 (4칸)
-set tabstop=4       " 탭 간격 (4칸)
-set expandtab       " 탭을 공백으로 변환
-set hlsearch        " 검색 결과 강조 (Highlight)
-set nocompatible    " 방향키 오류 방지 (가끔 방향키가 ABCD로 입력될 때 해결)
-set mouse=a         " 마우스 사용 가능
-syntax on           " 문법 강조 (Syntax Highlighting) 활성화
 ```

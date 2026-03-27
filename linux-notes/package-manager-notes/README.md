@@ -61,6 +61,9 @@ service / systemd / systemctl
  - systemctl (Modern)   : 최신 리눅스(CentOS 7 이상, Ubuntu 16.04 이상 등)의 표준인 systemd를 제어하는 도구입니다. 
                           부팅 시 자동 실행 설정(enable), 서비스 간의 의존성 관리, 상세 로그 확인 등이 가능합니다.
     - 1) 사용 확인법    : $ systemctl 명령어 입력
+        - $ systemctl start docker
+        - $ systemctl status docker
+        - $ systemctl enable docker     # 부팅할 때마다 도커가 알아서 켜지도록 설정
     - 2) 활성화 방법
         2-1) 설정 파일 열기 (또는 생성)   : /etc/wsl.conf 경로
         2-2) 내용 입력 후 저장           :
