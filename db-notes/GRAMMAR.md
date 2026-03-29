@@ -9,9 +9,12 @@ DB 문법 공부 노트
  - LISTAGG(컬럼, '구분자') WITHIN GROUP (ORDER BY 정렬기준)    : 여러 행의 한 컬럼 값을 특정 구분자(쉼표 등)로 연결할때 사용합니다. 
                                                               그룹별 데이터를 하나의 문자열로 합칠 수 있습니다.
                                                               4,000byte 초과하면 오류 발생하므로 XMLAGG 사용해야함
- - XMLAGG(XMLELEMENT(E, ID, ',').EXTRACT('//test()') ORDER BY ID)
- - UNION     : 중복되는 결과를 제외한다.(중복은 1개만 표시)
- - UNION ALL : 중복되는 결과까지 다 보여준다.(중복을 전부 표시)
+ - XMLAGG(XMLELEMENT(E, ID, ',').EXTRACT('//test()') ORDER BY ID)   : 자동으로 인코딩함(예약어를 엔티티로 변환)
+ - DBMS_XMLGEN.CONVERT      : 2번째 넣는 인자로 인코딩이나 디코딩을 함.
+    - 0 (Encoded): 문자를 엔티티로 바꿈 (기호를 코드로)
+    - 1 (Decoded): 엔티티를 문자로 바꿈 (코드를 기호로)
+ - UNION                    : 중복되는 결과를 제외한다.(중복은 1개만 표시)
+ - UNION ALL                : 중복되는 결과까지 다 보여준다.(중복을 전부 표시)
  - SUBSTR('20140101', 1, 4)     : '2014'
  - TO_CHAR(ADD_MONTHS(SYSDATE, -12), 'YYYYMMDD')    : 1년전 조회
  - TO_CHAR(1234567, 'FM999,999,999,990')            : 3자리 콤마
