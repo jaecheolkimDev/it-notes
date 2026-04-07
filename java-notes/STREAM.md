@@ -77,6 +77,13 @@ JAVA Stream 공부 노트
   List<Long> cndtSrchIdList = list.stream().map(e -> ValidationUtils.getLong(e[5])).collect(Collectors.toList());
   List<Long> acttIdList = list.getActtIdList().stream.distinct().collect(Collectors.toList());
   List<Long> acttIdList = list.stream.map(e -> e.getActivityId()).distinct().collect(Collectors.toList());
+  
+  import java.util.Objects; // 1. import 추가
+  List<Long> acttIdList = list.stream()
+    .map(e -> e.getActivityId())               // 2. 값 추출
+    .filter(Objects::nonNull)                  // 3. null 값 제거 (핵심)
+    .distinct()                                // 4. 중복 제거
+    .collect(Collectors.toList());
 ```
 
 
