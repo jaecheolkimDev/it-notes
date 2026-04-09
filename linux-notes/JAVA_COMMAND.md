@@ -13,3 +13,8 @@
 ```
     $ jcmd [PID] VM.flags
 ```
+
+3) JAVA버전에 따른 JVM 디폴트 옵션 확인
+```
+    $ java -XX:+PrintCommandLineFlags -version
+```
