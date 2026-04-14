@@ -5,9 +5,9 @@ JAVA JVM 공부 노트
 1\. 옵션
 -------------------
 ```
--Xms8g	초기 힙(Heap) 메모리 크기
+-Xms8g	초기 힙(Heap) 메모리 크기 (Default. 1/64)
     : 시작부터 8GB를 확보하여 메모리 할당 부하를 줄입니다.
--Xmx8g	최대 힙(Heap) 메모리 크기	
+-Xmx8g	최대 힙(Heap) 메모리 크기 (Default. 1/4)
     : 가장 중요. 8GB를 넘지 않게 제한합니다.
 -XX:+UseG1GC	G1 Garbage Collector 사용	
     : 대용량 메모리에서 '끊김 현상'을 줄이는 최신 알고리즘입니다.
