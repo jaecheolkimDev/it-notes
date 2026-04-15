@@ -34,9 +34,6 @@ Nginx Frontend(React, Vite) 배포 공부 노트
 4\. Nginx 설정 파일 수정하기
 --------------------------------------
 ```
-    $ cd /etc/nginx/conf.d
-    $ sudo vi default.conf
-    
     `/etc/nginx/conf.d/default.conf`
         
         server {

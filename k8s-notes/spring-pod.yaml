@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: spring-pod
+spec:
+  containers:
+    - name: spring-container
+      # 이미지의 태그가 `latest`이거나 명시되지 않은 경우 : `imagePullPolicy`는 `Always`로 설정됨
+      # 이미지의 태그가 `latest`가 아닌 경우 : `imagePullPolicy`는 `IfNotPresent`로 설정됨
+      image: spring-server  # 이게 dockerhub에 없고 태그가 명시되지 않아서 이미지 풀 정책이 Always라서 ImagePullBackOff에러 발생
+      ports:
+        - containerPort: 8080
+      imagePullPolicy: IfNotPresent # 이미지 풀 정책

@@ -121,8 +121,7 @@ Password    : 마스터 암호(Aurora and RDS 데이터베이스 만들 때 정�
 1) EC2 인스턴스에서 Spring Boot 서버 clone하기
     $ git clone https://github.com/JSCODE-BOOK/aws-rds-springboot.git
 2) application.yml 파일 수정하기
-    $ cd aws-rds-springboot/src/main/resources
-    $ vi application.yml
+    `aws-rds-springboot/src/main/resources/application.yml`
     
     server:
         port: 80

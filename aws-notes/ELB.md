@@ -177,7 +177,7 @@ ELB 비용 이슈로 인한 무료사용법
     ex) $ sudo certbot --nginx -d jscode-edu.link
     -  반드시 해당 EC2에 도메인을 연결한 뒤에 위 명령어를 쳐야 정상 작동한다. 
 6) 리버스 프록시 설정해주기
-    $ sudo vi /etc/nginx/sites-available/default
+    `/etc/nginx/sites-available/default`
     ...
     server {
         ...
