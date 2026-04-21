@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+
+# ConfigMap 기본 정보
+metadata:
+  name: spring-config # ConfigMap 이름
+#  # MYSQL
+#  name: mysql-config # ConfigMap 이름
+
+# Key, Value 형식으로 설정값 저장
+data:
+  my-account: jscode
+  my-password: password123
+  mysql-database: kub-practice
+  db-host: mysql-service
+  db-port: "3306"
+  db-name: kub-practice

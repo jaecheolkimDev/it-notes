@@ -1,0 +1,134 @@
+apiVersion: apps/v1
+kind: Deployment
+
+# Deployment 기본 정보
+metadata:
+  name: spring-deployment # Deployment 이름
+#  # MYSQL
+#  name: mysql-deployment # Deployment 이름
+#  # NGINX
+#  name: nginx-deployment # Deployment 이름
+
+# Deployment 세부 정보
+spec:
+  replicas: 3 # 생성할 파드의 복제본 개수
+  selector:
+    matchLabels:
+      app: backend-app # 아래에서 정의한 Pod 중 'app: backend-app'이라는 값을 가진 파드를 선택
+#      # MYSQL
+#      app: mysql-db # 아래에서 정의한 Pod 중 'app: mysql-db'이라는 값을 가진 파드를 선택
+#      # NGINX
+#      app: nginx # 아래에서 정의한 Pod 중 'app: nginx'이라는 값을 가진 파드를 선택
+
+  # 배포할 Pod 정의
+  template:
+    metadata:
+      labels: # 레이블 (= 카테고리)
+        app: backend-app
+#        # MYSQL
+#        app: mysql-db
+#        # NGINX
+#        app: nginx
+    spec:
+      containers:
+        - name: spring-container # 컨테이너 이름
+          image: spring-server # 컨테이너를 생성할 때 사용할 이미지
+#          image: spring-server:1.0 # 버전 업데이트할 때의 방식
+#        # MYSQL
+#        - name: mysql-container # 컨테이너 이름
+#          image: mysql # 컨테이너를 생성할 때 사용할 이미지
+#        # NGINX
+#        - name: nginx-container # 컨테이너 이름
+#          image: nginx # 컨테이너를 생성할 때 사용할 이미지
+          imagePullPolicy: IfNotPresent # 로컬에서 이미지를 먼저 가져온다. 없으면 레지스트리에서 가져온다.
+          ports:
+            - containerPort: 8080  # 컨테이너에서 사용하는 포트를 명시적으로 표현
+#            # MYSQL
+#            - containerPort: 3306  # 컨테이너에서 사용하는 포트를 명시적으로 표현
+#            # NGINX
+#            - containerPort: 80 # 컨테이너에서 사용하는 포트를 명시적으로 표현
+          # 1. 환경변수 - 직접 사용
+#          env:  # 환경변수 등록
+#            - name: MY_ACCOUNT
+#              value: jaeseion
+#            - name: MY_PASSWORD
+#              value: pwd1234
+          # 2. 환경변수 - ConfigMap 사용
+          env:
+            - name: MY_ACCOUNT
+              valueFrom:
+                configMapKeyRef:
+                  name: spring-config # ConfigMap의 이름
+                  key: my-account # ConfigMap에 설정되어 있는 Key값
+            - name: MY_PASSWORD
+              valueFrom:
+                # 1. 비밀번호 - ConfigMap 사용
+#                configMapKeyRef:
+#                  name: spring-config
+#                  key: my-password
+                # 2. 비밀번호 - 시크릿(Secret) 사용
+                secretKeyRef:
+                  name: spring-secret
+                  key: my-password
+#            # MYSQL 환경변수
+#          env:
+#            - name: MYSQL_ROOT_PASSWORD
+#              value: password123
+#              valueFrom:
+#                secretKeyRef:
+#                  name: mysql-secret
+#                  key: mysql-root-password
+#            - name: MYSQL_DATABASE
+#              value: kub-practice
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: mysql-config
+#                  key: mysql-database
+#          # MYSQL : 컨테이너 내에서 어떤 경로를 볼륨으로 사용할 지 지정
+#          volumeMounts:
+#            - name: mysql-persistent-storage # 밑에서 설정할 volumes.name과 값이 같아야 함
+#              mountPath: /var/lib/mysql # mysql 컨테이너 내부에 있는 경로
+#      # MYSQL : 파드가 사용할 볼륨을 지정
+#      volumes:
+#        - name: mysql-persistent-storage # 위에서 설정할 volumeMounts.name과 일치해야 함
+#          persistentVolumeClaim:
+#            claimName: mysql-pvc # 연결시킬 PVC의 name과 동일해야 함
+#          # 1. MYSQL - 스프링에서 연결할때 환경변수 직접 연결
+#          env: 백엔드(Spring Boot) 서버와 MySQL 연동하기 (application.yml파일에 넘겨줄 환경변수) , 기존에 올라와있는 MYSQL에 연결됨
+#            - name: DB_HOST
+#              value: mysql-service # Service의 name만 입력하면 다른 서비스와 통신할 수 있다.
+#            - name: DB_PORT
+#              value: "3306" # 숫자값을 문자로 인식하게 만들기 위해 쌍따옴표 붙여야 한다.
+#            - name: DB_NAME
+#              value: kub-practice
+#            - name: DB_USERNAME
+#              value: root
+#            - name: DB_PASSWORD
+#              value: password123
+#          # 2. MYSQL - 스프링에서 연결할때 환경변수 ConfigMap/Secret 사용
+#          env:
+#            - name: DB_HOST
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: spring-config
+#                  key: db-host
+#            - name: DB_PORT
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: spring-config
+#                  key: db-port
+#            - name: DB_NAME
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: spring-config
+#                  key: db-name
+#            - name: DB_USERNAME
+#              valueFrom:
+#                secretKeyRef:
+#                  name: spring-secret
+#                  key: db-username
+#            - name: DB_PASSWORD
+#              valueFrom:
+#                secretKeyRef:
+#                  name: spring-secret
+#                  key: db-password

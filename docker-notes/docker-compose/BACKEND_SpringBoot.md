@@ -3,13 +3,8 @@ Docker Compose로 백엔드(Spring Boot) 실행시키기
 
 0\. Dockerfile
 -----------------------------
+[spring 도커파일](../Dockerfile/Dockerfile_spring)
 ```
-        FROM openjdk:17-jdk
-        
-        COPY build/libs/*SNAPSHOT.jar /app.jar
-        
-        ENTRYPOINT ["java", "-jar", "/app.jar"]
-        
 * `$ ./gradlew clean build`가 선행되어야함.(Spring Boot 프로젝트 빌드하기)
 ```
 

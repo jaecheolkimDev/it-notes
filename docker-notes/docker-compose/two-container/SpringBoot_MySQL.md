@@ -14,14 +14,9 @@ Spring Boot, MySQL 컨테이너 동시에 띄워보기
         driver-class-name: com.mysql.cj.jdbc.Driver
 2) 불필요한 테스트 코드 삭제
 3) `$ ./gradlew clean build`    : Spring Boot 프로젝트 빌드하기
-4) Dockerfile
-        FROM openjdk:17-jdk
-        
-        COPY build/libs/*SNAPSHOT.jar /app.jar
-        
-        ENTRYPOINT ["java", "-jar", "/app.jar"]
-        
+4) Dockerfile        
 ```
+[spring 도커파일](../../Dockerfile/Dockerfile_spring)
 
 
 2\. compose.yml

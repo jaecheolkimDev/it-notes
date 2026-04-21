@@ -10,9 +10,14 @@ Node.js 공부 노트
 ```
 
 
-2\.
+2\. npm(Node Package Manager)
 --------------------------------------
-``` 
+```
+- 의존성 지옥(Dependency Hell) 해결
+- 관심사 분리(Separation of Concerns)
+- 결합도(Coupling) 낮추기
+
+- 명세서(package.json)로 기록하고 이를 어디서든 동일하게 복원(npm install)
 ```
 
 3\. 

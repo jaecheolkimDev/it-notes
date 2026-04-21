@@ -1,0 +1,44 @@
+# spring-pod.yaml #
+#
+#  3개의 Spring Boot 서버를 띄우는 데 성공했다. 서버가 3개여서 망정이지 만약 100개의 서버를 띄워야 한다면 불편하지 않을까?
+#  그리고 서비스를 운영하다보면 시간, 계절, 이벤트 등에 따라 트래픽은 시시각각 변한다. 그럴 때마다 트래픽에 맞게 서버의 대수를 바꿔야 한다면 아주 불편할 것이다.
+#  이런 불편함을 해결해주는 쿠버네티스의 기능이 디플로이먼트(Deployment)이다.
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: spring-pod-1
+spec:
+  containers:
+    - name: spring-container
+      image: spring-server
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: spring-pod-2
+spec:
+  containers:
+    - name: spring-container
+      image: spring-server
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 8080
+
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: spring-pod-3
+spec:
+  containers:
+    - name: spring-container
+      image: spring-server
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 8080

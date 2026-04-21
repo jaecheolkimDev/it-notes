@@ -15,21 +15,6 @@ IT용어 공부 노트
 
 
 [ Encoding ] euc-kr : 2바이트 , utf-8  : 3바이트
-<M>
-MSA(Micro Service Architecture)
-- 하나의 큰 어플리케이션을 여러개의 작은 어플리케이션으로 쪼개어 변경과 조합이 가능하도록 만든 아키텍쳐.
-- 서비스/프로젝트가 크고, 복잡하고, 장기적으로 운영될 수록, MSA의 장점이 더욱 드러난다.
-MSA는 큰 의미에서 SOA의 부분집합으로 여겨지고 있다.
-* small services, each running in its own process
-* independently deployable
-  Monolithic Architecture : 소프트웨어의 모든 구성요소가 한 프로젝트에 통합되어있는 형태.
-    - 아직까지는 많은 소프트웨어가 Monolithic형태로 구현되어 있고, 소규모에서는 훨씬 합리적이다.
-    - 간단한 Architecture이고, 유지보수가 용이하기 때문.
-      [단점]
-    - 서비스/프로젝트가 커지면 커질수록, 영향도 파악 및 전체 시스템 구조의 파악에 어려움이 있다.
-    - 빌드 시간 및 테스트시간, 그리고 배포시간이 기하급수적으로 늘어난다.
-    - 서비스를 부분적으로 scale-out하기가 힘들다.
-    - 부분의 장애가 전체 서비스의 장애로 이어지는 경우가 발생한다.
 <O>
 OZ동작순서 백그라운드 -> 디자인 -> 포그라운드 
 <U>
