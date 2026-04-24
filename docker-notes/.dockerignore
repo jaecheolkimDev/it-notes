@@ -1,0 +1,10 @@
+#.dockerignore   : 복사할 파일들을 필터링합니다.(속도,보안,최적화)
+# docker build 명령어를 실행하는 시점에 적용됩니다.
+# 특정 파일 또는 폴더만 COPY를 하고 싶지 않을 수 있다. 그럴 때 사용한다. (Dockerfile)
+
+
+#이미지를 생성할 때 npm install을 통해 처음부터 깔끔하게 필요한 의존성만 설치한다.
+#따라서 호스트 컴퓨터에 있는 node_modules는 컨테이너로 복사해갈 필요가 없다.
+node_modules
+
+readme.txt

@@ -40,6 +40,28 @@ JAVA Stream 공부 노트
    				WorkflowDeployDtlDto w = new WorkflowDeployDtlDto();
    				return w;
    			}, Collectors.toList())));
+   			
+    List<Object[]> resultList = dao.findDuplicateSqlTemplateCodes();
+    Set<String> resultSet = resultList.stream()
+        .map(objArray -> (String) objArray[0]) // Object를 String으로 캐스팅
+        .filter(Objects::nonNull)              // Null 값이 섞여 있을 경우 제외
+        .collect(Collectors.toSet());          // Set으로 변환 (자동 중복 제거)
+            
+    // resultList는 List<Object[]> 타입
+    List<String> uniqueValues = resultList.stream()
+        .filter(row -> row != null && row.length > 23) // 24번째 값(index 23)이 존재하는지 확인
+        .map(row -> row[23])                           // 24번째 값 추출
+        .filter(Objects::nonNull)                      // Null 값 제외
+        .map(String::valueOf)                          // String으로 변환
+        .distinct()                                    // 중복 제거
+        .collect(Collectors.toList());                 // 다시 List로 변환
+        
+    // LIST를 MAP으로 변환
+    Map<String, String> templateMap = rdsTemplateList.stream()
+        .collect(Collectors.toMap(
+            RdsTemplateEntity::getRdsTemplateCode,   // Key Mapper
+            RdsTemplateEntity::getRdsTemplateScript  // Value Mapper
+        ));
 ```
 
 

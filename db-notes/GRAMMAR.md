@@ -9,7 +9,7 @@ DB 문법 공부 노트
  - LISTAGG(컬럼, '구분자') WITHIN GROUP (ORDER BY 정렬기준)    : 여러 행의 한 컬럼 값을 특정 구분자(쉼표 등)로 연결할때 사용합니다. 
                                                               그룹별 데이터를 하나의 문자열로 합칠 수 있습니다.
                                                               4,000byte 초과하면 오류 발생하므로 XMLAGG 사용해야함
- - XMLAGG(XMLELEMENT(E, ID, ',').EXTRACT('//test()') ORDER BY ID)   : 자동으로 인코딩함(예약어를 엔티티로 변환)
+ - XMLELEMENT               : 자동으로 인코딩함(예약어를 엔티티로 변환) - 데이터를 XML 형식에 맞게 "보호"하려다 보니 발생한 부작용
  - DBMS_XMLGEN.CONVERT      : 2번째 넣는 인자로 인코딩이나 디코딩을 함.
     - 0 (Encoded): 문자를 엔티티로 바꿈 (기호를 코드로)
     - 1 (Decoded): 엔티티를 문자로 바꿈 (코드를 기호로)
@@ -21,6 +21,9 @@ DB 문법 공부 노트
  - SIGN(x)      : X값이 0보다 작으면 -1 , 0이면 0 , 0보다 크면 1을 반환
  - LENGTHB(x)   : 바이트수 계산
  - MOD(m, n)    : m을 n으로 나누었을 때 나머지를 반환한다.
+ - NVL(값, null일때 값)
+ - NVL2(컬럼, NULL이 아닐 때 값, NULL일 때 값)
+ - RTRIM(컬럼, 오른쪽 끝 제거하고 싶은 문자)
 ```
 
 2\. 힌트
@@ -58,12 +61,9 @@ ORA-01722 : 수치가 부적합합니다.
 
 
 
-5\. ALTER
+5\. 
 --------
 ```
-테이블컬럼 이름 변경 : ALTER TABLE HPACOM.TBL_DATA_VALD_RULE RENAME COLUMN EXTERNAL_DATA TO VALD_DATA;
-
-
 ```
 
 

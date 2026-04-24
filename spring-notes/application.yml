@@ -1,0 +1,35 @@
+
+
+
+spring:
+  batch:
+    jdbc:
+      # always: 항상 생성 (테이블이 없으면 생성)
+      # embedded: H2 같은 내장 DB일 때만 생성 (기본값)
+      # never: 생성하지 않음 (운영 환경 권장)
+      initialize-schema: always     # 스프링 배치 메타 테이블 구축
+      
+  datasource:
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+logging:
+  level:
+    root: WARN        # 전체 기본 로그를 WARN으로 올려서 잡음을 제거합니다.
+    my: INFO         # 내 프로젝트(my) 로그는 INFO로 확인합니다.
+    org.springframework.web: INFO         # RestTemplate 등 웹 관련 로그 억제
+    org.springframework.security: INFO    # Security 필터 체인 및 매칭 로그 억제
+    org.hibernate.SQL: ERROR              # (필요시) SQL 로그가 너무 많으면 상향
+    org.apache.http: INFO                     # 외부 통신 상세 로그 억제
+    # 내가 짠 코드만 DEBUG로 보고 싶다면 패키지명 지정
+    com.your.package: DEBUG
+    # "Checking match of request..." 로그 범인
+    org.springframework.security.web.util.matcher: INFO
+    # "firing Filter..." 로그 범인
+    org.springframework.security.web.FilterChainProxy: INFO
+    # RestTemplate 통신 내역 범인
+    org.springframework.web.client.RestTemplate: INFO
+    # OAuth 관련 상세 인증 로그
+    org.springframework.security.oauth2: INFO

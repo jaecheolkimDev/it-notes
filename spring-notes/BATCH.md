@@ -29,16 +29,21 @@ JdbcPagingItemReader : 각 페이지마다 새로운 쿼리를 실행하므로 �
 ```
 
 
-4\. Reader
+4\. 배치 메타 테이블
 ------------------
 ```
-1. 메타 데이터가 적재되는 시점
+1) 메타 데이터가 적재되는 시점
 데이터는 배치 작업의 생명주기에 따라 실시간으로 적재 및 업데이트됩니다.
 테이블명                            적재/업데이트 시점                                      주요 내용
 BATCH_JOB_INSTANCE              Job이 처음 실행될 때 생성                                Job 이름과 파라미터의 조합으로 고유 인스턴스 기록
-BATCH_JOB_EXECUTION             Job 실행 시작 시 생성, 종료 시 업데이트                   실행 상태(STARTED, COMPLETED, FAILED), 시작/종료 시간
-BATCH_JOB_EXECUTION_PARAMS      Job 실행 시 함께 저장                                      Job 호출 시 전달된 파라미터 값들
-BATCH_STEP_EXECUTION            각 Step 시작 시 생성, Chunk 커밋 시 및 종료 시 업데이트      읽기/쓰기 횟수, 커밋/롤백 횟수, Step 상태
+BATCH_JOB_EXECUTION             Job 실행 시작 시 생성, 종료 시 업데이트                    실행 상태(STARTED, COMPLETED, FAILED), 시작/종료 시간
+BATCH_JOB_EXECUTION_PARAMS      Job 실행 시 함께 저장                                   Job 호출 시 전달된 파라미터 값들
+BATCH_STEP_EXECUTION            각 Step 시작 시 생성, Chunk 커밋 시 및 종료 시 업데이트     읽기/쓰기 횟수, 커밋/롤백 횟수, Step 상태
 BATCH_JOB_EXECUTION_CONTEXT     Job 실행 도중 또는 종료 시                               데이터 공유를 위한 Context 정보 (직렬화된 객체)
 BATCH_STEP_EXECUTION_CONTEXT    Step 실행 도중 또는 종료 시                              각 Step의 개별 상태 정보
+
+2) DDL 쿼리 위치
+스프링 배치 의존성 내부에 각 DB별 기본 생성 스크립트가 포함되어 있습니다. 이를 참고해서 컬럼 사이즈만 살짝 수정해 사용하시면 편리합니다.
+
+위치: org/springframework/batch/core/schema-*.sql (라이브러리 jar 파일 내부)
 ```

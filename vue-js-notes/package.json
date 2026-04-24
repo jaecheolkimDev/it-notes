@@ -1,0 +1,18 @@
+//package.json은 Node.js 생태계에서 Java의 pom.xml(Maven)이나 build.gradle(Gradle)과 같은 역할을 하는 핵심 설정 파일입니다.
+
+//Maven(pom.xml) vs npm(package.json) 비교
+//기능            Maven (pom.xml)	        npm (package.json)
+//프로젝트 정보	<groupId>, <artifactId>	  "name", "version"
+//라이브러리 관리  <dependencies>	          "dependencies", "devDependencies"
+//저장소 위치	    .m2 폴더	                  node_modules 폴더
+//실행/빌드 도구  Maven Plugins	          scripts
+
+
+{
+  "name": "webapp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --quiet"
+  }
+}

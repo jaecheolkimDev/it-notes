@@ -12,8 +12,6 @@ Docker 이미지를 만들게 해주는 명령어들이 있는 파일이다.
  3. 이미지를 바탕으로 컨테이너를 생성한 뒤, 컨테이너를 실행까지 시킨다. 
  4. 실행중인 컨테이너 내부에 접속해서 확인
  
- 
-.dockerignore   : 복사할 파일들을 필터링합니다.(속도,보안,최적화)
 심화) Docker 이미지 생성 시 캐시를 활용해서 최적화할 수 있는 방법이 있다. 입문자한테는 불필요한 내용이기 때문에 별도로 설명하지 않았다.  
 ```
 
@@ -26,20 +24,15 @@ FROM은 베이스 이미지를 생성하는 역할을 한다. Docker 컨테이�
     FROM [이미지명]:[태그명]   : 태그명을 적지 않으면 해당 이미지의 최신(latest) 버전을 사용한다. 
 ```
 
-3\. COPY
+3\. COPY    : 호스트 컴퓨터에 있는 파일을 복사해서 컨테이너로 전달한다.
 -----------------------------
 ```
-COPY는 호스트 컴퓨터에 있는 파일을 복사해서 컨테이너로 전달한다.
     COPY [호스트 컴퓨터에 있는 복사할 파일의 경로] [컨테이너에서 파일이 위치할 경로]
     COPY app.txt /app.txt       : 파일 복사
     COPY my-app /my-app/        : 폴더 복사
     COPY *.txt /text-files/     : *.txt파일들을 폴더로 복사
     COPY ./ /                   : 현재위치의 모든 항목을 복사
     COPY build/libs/*SNAPSHOT.jar app.jar       :  SNAPSHOT.jar파일을 app.jar로 복사
-    
-특정 파일 또는 폴더만 COPY를 하고 싶지 않을 수 있다. 그럴 때 .dockerignore를 활용한다. 
-1) .dockerignore 파일 만들기
-    내용 : readme.txt
 ```
 
 4\. ENTRYPOINT
@@ -91,6 +84,13 @@ docker -p 8080:8080 … 와 같은 명령어의 -p 옵션과 같은 역할은 �
     EXPOSE 3000
 ```
 
+998\. Spring 
+-----------------------------
+```
+1) Spring Boot 프로젝트 빌드              : ./gradlew clean build
+2) Dockerfile                           : 작성 -> Dockerfile로 이미지 빌드(build) -> 컨테이너 실행(run)
+
+```
 
 999\. Dockerfile 생성 및 수정
 -----------------------------

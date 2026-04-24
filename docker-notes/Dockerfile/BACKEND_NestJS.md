@@ -29,11 +29,8 @@ $ nest new my-server    : nest new {프로젝트명}
 
 3\. .dockerignore 작성하기
 -----------------------------
-이미지를 생성할 때 npm install을 통해 처음부터 깔끔하게 필요한 의존성만 설치한다. 
-따라서 호스트 컴퓨터에 있는 node_modules는 컨테이너로 복사해갈 필요가 없다.
-```
-        node_modules
-```
+[.dockerignore](../.dockerignore)
+
 
 4\. 빌드 및 실행
 -----------------------------
