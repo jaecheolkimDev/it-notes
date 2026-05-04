@@ -29,7 +29,7 @@ k3s를 활용하면 위에서 얘기한 2가지 단점을 해결할 수 있다.
 
 4\. 설치하기
 --------
-[k3s 설치](../linux-notes/install-notes/k3s.md)
+[k3s 설치](../linux-notes/install/k3s.md)
 
 5\.
 --------

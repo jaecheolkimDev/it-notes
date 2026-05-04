@@ -3,4 +3,4 @@
 
 1\. 설치
 -----------------------
-[도커 설치](../linux-notes/install-notes/docker.md)
+[도커 설치](../linux-notes/install/docker.md)
