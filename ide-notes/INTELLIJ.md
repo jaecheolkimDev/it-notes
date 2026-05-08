@@ -1,7 +1,18 @@
 IntelliJ 공부 note
 ======================
 
-1\. 단축키
+1\. 인코딩(Encoding) 설정
+-----------------------
+```
+전체 설정 확인 (Global Settings)
+    1) Settings/Preferences (Ctrl + Alt + S) → Editor → File Encodings
+        - Global Encoding: UTF-8
+        - Project Encoding: UTF-8
+        - Default encoding for properties files: UTF-8로 설정하고 
+          옆의 Transparent native-to-ascii conversion 체크박스를 체크하는 것이 좋습니다.
+```
+
+2\. 자주 사용하는 단축키
 -----------------------
 ```
 1. ctrl + alt + ←,→  : 포커스 뒤로/앞으로 가기(이전 커서가 있던 화면으로 돌아갈 때 유용 , 클래스 이동도 가능)
@@ -35,8 +46,13 @@ IntelliJ 공부 note
   호출 메소드 추적 : ctrl + alt + h
 ```
 
+3\. 1회성 단축키
+-----------------------
+```
+1) Alt + 7      : Strure 탭 열기 (해당 클래스의 변수, 메소드 한 눈에 보임)
+```
 
-2\. Stash(스태시)
+4\. Stash(스태시)
 -----------------------
 작업 중인 변경 사항을 커밋하지 않고 잠시 따로 보관해두는 기능
 ```
@@ -61,7 +77,7 @@ Unstash 하기 (불러오기)
 
 ```
 
-3\. .gitignore에 설정 파일 추가 
+5\. .gitignore에 설정 파일 추가 
 -----------------------
 ```
 추가 후 `bash : $ git rm -r -f --cached .idea/` 명령어 입력을 통해 git 추적중이던 캐시를 삭제

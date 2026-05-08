@@ -1,6 +1,6 @@
 JAVA Deque 공부 노트
 ==========================================================================================================================================================================
-ArrayDeque는 **스택(Stack)**과 **큐(Queue)**의 기능을 모두 가진 **Double-Ended Queue(Deque)**입니다.
+ArrayDeque는 스택(Stack)과 큐(Queue)의 기능을 모두 가진 Double-Ended Queue(Deque)입니다.
 
 1\. 사용 이유
 -------------------
@@ -27,8 +27,8 @@ ArrayDeque는 **스택(Stack)**과 **큐(Queue)**의 기능을 모두 가진 **D
 2\. 함수
 -------------------
 ```
-add, remove, get 계열은 실패 시 **예외(Exception)**를 던지고, 
-offer, poll, peek 계열은 실패 시 **특정한 값(null 또는 false)**을 반환합니다. 
+add, remove, get 계열은 실패 시 예외(Exception)를 던지고, 
+offer, poll, peek 계열은 실패 시 특정한 값(null 또는 false)을 반환합니다. 
 실무에서는 후자가 예외 처리에 더 안전합니다.
 
 isEmpty(): 비어있는지 확인 (가장 자주 씁니다.)
