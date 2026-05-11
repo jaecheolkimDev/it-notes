@@ -42,6 +42,15 @@ INNER JOIN으로 변경하기 위해선
  - @JoinColumn의 nullable 속성 변경(위 설정도 같이해주면 성능상 좋음)
   ex) @JoinColumn(name="member_id", nullable = false)
 
+JPA에서 1:N(일대다) 관계를 매핑할 때는 보통 양방향 매핑을 권장합니다. 부모 엔티티(Parent)에서 자식 리스트를 참조할 수 있고, 
+자식 엔티티(Child)에서도 부모가 누구인지 알 수 있도록 설정하는 것이 객체지향적인 설계와 데이터 관리에 유리하기 때문입니다.
+    // mappedBy: 자식 엔티티에 있는 부모 참조 필드명("parent")을 지정
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Child> childList = new ArrayList<>();
+        // RDS_MODEL_ID 컬럼을 통해 TBL_RDS_MODEL과 연결
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "PARENT_ID")
+        private Parent parent;
 ```
 
 

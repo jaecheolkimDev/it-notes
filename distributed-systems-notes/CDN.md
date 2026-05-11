@@ -1,7 +1,7 @@
-infrastructure 공부 노트
+CDN(Content Delivery Network) 공부 노트
 =================
 
-1\. CDN(Content Delivery Network)
+1\. 개념
 -------------------
 사용자에게 가장 가까운 서버를 통해 컨텐츠를 전달하는 기술을 말합니다.
 ```
