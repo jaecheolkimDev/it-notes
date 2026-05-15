@@ -41,18 +41,13 @@ Github(Gitlab, Bitbucket) : Git으로 저장되서 원격 전송된 내역들이
 | `git checkout 브랜치명`    | git + checkout + 브랜치         | 지정 브랜치(브랜치)를 체크아웃(checkout)하여 이동하는 명령어.           |
 | `git remote`            | git + remote               | 원격 저장소를 관리하는 명령어.                                         |
 
-
 2\. 개념
 -------------------------------
 ```
 - 원격 저장소는 Github, Gitlab, Bitbucket과 같은 플랫폼에서 호스팅된 저장소를 의미합니다
-
-
 -fetch:로컬 저장소로가져올 원격 저장소
-
 -push:로컬 데이터가 올라갈 원격 저장소
 ```
-
 
 3\. push
 -------------------------------
@@ -61,4 +56,17 @@ $ git push origin main  : 로컬 브랜치를 원격(origin)의 브랜치(main)�
 $ git push -u origin main
     -u  : --set-upstream    : 현재 브랜치와 원격 브랜치를 '짝꿍(연결)'으로 등록하겠다(서로 추적(Tracking) 관계가 된다)
                               이 후 부터는 $ git push 또는 $ git pull 만 해도된다.
+```
+
+4\. 신규 프로젝트 git 연결 순서
+-------------------------------
+```
+1) GitHub: 새 레포지토리를 만듭니다. (이때 'Add a README file' 등은 체크하지 않는 것이 충돌 방지에 좋습니다.)
+2) 인텔리제이 터미널: 프로젝트 하단 Terminal 탭에서 다음 명령어를 순서대로 입력합니다.
+    git init (로컬 저장소 초기화)
+    git add . (파일 스테이징)
+    git commit -m "Initial commit" (커밋)
+    git branch -M main (기본 브랜치 이름을 main으로 변경)
+    git remote add origin [내 깃허브 주소] (연결)
+    git push -u origin main (업로드)
 ```
