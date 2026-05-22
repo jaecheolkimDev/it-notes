@@ -26,8 +26,8 @@ $ cd linux-springboot
 ```
 $ ./gradlew clean build # 기존 빌드된 파일을 삭제하고 새롭게 JAR로 빌드
 $ cd build/libs
-$ java -jar linux-springboot-0.0.1-SNAPSHOT.jar          # 포그라운드로 실행
-$ nohup java -jar linux-springboot-0.0.1-SNAPSHOT.jar &  # 백그라운드로 실행
+$ java -jar linux-springboot-0.0.1-SNAPSHOT.jar             : 포그라운드로 실행
+$ nohup java -jar linux-springboot-0.0.1-SNAPSHOT.jar &     : 백그라운드로 실행
 ```
 
 2\. Spring Boot 서버가 출력하는 로그를 파일로 남기기

@@ -5,14 +5,17 @@ JAVA Stream 공부 노트
 --------
 ```
 - 스칼라나 히스켈과 같은 소위 함수형 언어들은 전혀 다른 방법으로 null 문제를 해결한다.
-  자바가 '존재하지 않는 값'을 표현하기 위해서 null을 사용했다면, 이 함수형 언어들은 '존재할지 안 할지 모르는값'을 표현할 수 있는 별개의 타입을 가지고 있다.
-  그리고 이 타입은 존재할지 안 할지도 모르는 값을 제어할 수 있는 여러가지 API를 제공하기 때문에 개발자들은 해당 API를 통해서 간접적으로 그 값에 접근한다.
+  자바가 '존재하지 않는 값'을 표현하기 위해서 null을 사용했다면, 이 함수형 언어들은 '존재할지 안 할지 모르는값'을 표현할 수 있는 별개의 타입을 
+  가지고 있다.
+  그리고 이 타입은 존재할지 안 할지도 모르는 값을 제어할 수 있는 여러가지 API를 제공하기 때문에 개발자들은 해당 API를 통해서 간접적으로 
+  그 값에 접근한다.
   JAVA8은 이러한 함수형 언어의 접근 방식에서 영감을 받아 java.util.Optional<T>라는 새로운 클래스를 도입했다.
 - Optional은 '존재할 수도 있지만 안 할수도 있는 객체', 즉 'null이 될 수도 있는 객체'를 감싸고 있는 일종의 래퍼 클래스이다.
   원소가 없거나 최대 하나 밖에 없는 Collection이나 Stream으로 생각해도 좋다.
   직접 다루기에 위험하고 까다로운 null을 담을 수 있는 특수한 그릇으로 생각하면 이해가 쉽다.
+- 자바의 Stream API는 컬렉션(List, Set, Map 등)이 비어 있는 상태(Size가 0인 상태)일 때 연산을 수행해도 절대 NullPointerException(NPE)을 
+  발생시키지 않도록 설계되어 있습니다.
 ```
-
 
 1\. 변환
 --------
@@ -44,16 +47,12 @@ JAVA Stream 공부 노트
     List<Object[]> resultList = dao.findDuplicateSqlTemplateCodes();
     Set<String> resultSet = resultList.stream()
         .map(objArray -> (String) objArray[0]) // Object를 String으로 캐스팅
-        .filter(Objects::nonNull)              // Null 값이 섞여 있을 경우 제외
         .collect(Collectors.toSet());          // Set으로 변환 (자동 중복 제거)
             
     // resultList는 List<Object[]> 타입
     List<String> uniqueValues = resultList.stream()
-        .filter(row -> row != null && row.length > 23) // 24번째 값(index 23)이 존재하는지 확인
         .map(row -> row[23])                           // 24번째 값 추출
-        .filter(Objects::nonNull)                      // Null 값 제외
         .map(String::valueOf)                          // String으로 변환
-        .distinct()                                    // 중복 제거
         .collect(Collectors.toList());                 // 다시 List로 변환
         
     // LIST를 MAP으로 변환
@@ -92,42 +91,15 @@ JAVA Stream 공부 노트
 ```
 
 
-3\. 한 항목 추출
+3\. DTO에서 한 항목 추출
 --------
 ```
-- 한 항목에 대해 DTO LIST를 LIST로 만들때
-  List<Long> cndtSrchIdList = list.stream().map(e -> ValidationUtils.getLong(e[5])).collect(Collectors.toList());
-  List<Long> acttIdList = list.getActtIdList().stream.distinct().collect(Collectors.toList());
-  List<Long> acttIdList = list.stream.map(e -> e.getActivityId()).distinct().collect(Collectors.toList());
-  
-  import java.util.Objects; // 1. import 추가
-  List<Long> acttIdList = list.stream()
-    .map(e -> e.getActivityId())               // 2. 값 추출
-    .filter(Objects::nonNull)                  // 3. null 값 제거 (핵심)
-    .distinct()                                // 4. 중복 제거
-    .collect(Collectors.toList());
+  List<Long> cndtSrchIdList = list.stream().map(e -> e[5]).collect(Collectors.toList());
+  List<Long> acttIdList = list.stream().map(e -> e.getActivityId()).collect(Collectors.toList());
 ```
 
 
-4\. NPE방지
---------
-```
-1) null이면 객체를 만들어서 get해서 NPE방지 => 결국 null이긴함. null이 아니어야지 값을 가져옴.
-    String grouOtpySspdYn = Optional.ofNullable(otpySspdCnfmCSI.selectGrouOtpySspdYn(grouOtpySspdYnInqyInpt))
-                                .orElseGet(OtpySspdYnInqyRsltDTO::new).getOtpySspdYn()
-
-2)
-- NULL이면 ""으로 세팅.
-  String polyNo = Optional.ofNullable(atpaRtrnTrgtListInqyInpt.getPolyNo()).orElse("")
-- List(null이면 빈List 세팅.)
-  List<SvpyDTO> svpyList = Optional.ofNullable(svpyCalcRslt.getSvpyList()).orElseGet(() -> Collections.emptyList());
-- List(null이면 null 세팅.)
-  List<SvpyDTO> svpyList = Optional.ofNullable(list).orElse(null);
-```
-
-
-
-5\. filter , findFirst , findAny
+4\. findFirst , findAny
 --------
 findAny() : Stream에서 가장 먼저 탐색되는 요소 리턴
 findFirst() : 조건에 일치하는 요소들 중에 Stream에서 순서가 가장 앞에 있는 요소 리턴
@@ -141,7 +113,10 @@ findFirst() : 조건에 일치하는 요소들 중에 Stream에서 순서가 가
 ```
 
 
-6\. 
+5\. 옵션
 --------
 ```
+    .filter(java.util.Objects::nonNull)                  // null 값 제거
+    .filter(row -> row != null && row.length > 23) // 24번째 값(index 23)이 존재하는지 확인
+    .distinct()                                // 중복 제거
 ```

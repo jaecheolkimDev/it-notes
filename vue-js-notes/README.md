@@ -19,6 +19,8 @@ vue.js 공부 note
               ...item,              // 스프레드 연산자 (객체의 내용을 펼쳐서 복사하는 문법)
               select: false
             }));
+            
+this.$forceUpdate()     : 강제 렌더링
 ```
 
 1\. 선언적 프로그래밍(Declarative Programming)

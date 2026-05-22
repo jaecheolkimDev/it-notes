@@ -51,6 +51,9 @@ JPA에서 1:N(일대다) 관계를 매핑할 때는 보통 양방향 매핑을 �
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "PARENT_ID")
         private Parent parent;
+        
+연관관계의 주인    : 외래 키를 직접 관리하는 객체입니다. DB 테이블에 FK가 있는 곳이 주인이 됩니다.
+mappedBy        : "나는 주인이 아니에요. 저쪽에 의해 매핑되었을 뿐이에요"라고 선언하는 표식입니다.
 ```
 
 

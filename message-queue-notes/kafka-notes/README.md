@@ -58,7 +58,7 @@ REST API 방식은 요청을 보낸 뒤에 모든 작업이 다 처리될 때까
 
 4\. 카프카 설정 수정하기
 --------------------------------------
-[vi config/server.properties](./server.properties)
+[vi config/server.properties](server.properties)
 
 5\. 카프카 서버 시작하기
 --------------------------------------

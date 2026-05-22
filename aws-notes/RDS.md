@@ -146,7 +146,7 @@ Password    : 마스터 암호(Aurora and RDS 데이터베이스 만들 때 정�
     $ cd ~/aws-rds-springboot
     $ ./gradlew clean build -x test # 스프링 부트 프로젝트 빌드
     $ cd build/libs
-    $ sudo nohup java -jar aws-rds-springboot-0.0.1-SNAPSHOT.jar & # JAR 파일 실행
+    $ sudo nohup java -jar aws-rds-springboot-0.0.1-SNAPSHOT.jar &      : JAR 파일 실행
     $ sudo lsof -i:80 # 80번 포트에서 실행되는 프로세스 조회
 4) 백엔드 서버로 요청 보내기
     웹 브라우저를 사용해 ELB에 연결해 둔 도메인 주소로 요청을 보내서 백엔드 서버가 정상으로 응답하는지 확인해 보겠습니다. 

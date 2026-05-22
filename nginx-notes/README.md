@@ -34,16 +34,7 @@ Nginx를 더 많이 사용하는 가장 큰 이유는 Apache에 비해 훨씬 �
 
 4\. 실행
 --------------------------------------
-```
-1) 서비스
- - 시작 $ sudo systemctl start nginx
- - 중지 $ sudo systemctl stop nginx
-2) 상태 확인
- $ sudo systemctl status nginx
-3) 부팅 시 자동 실행
- - 설정 $ sudo systemctl enable nginx
- - 해제 $ sudo systemctl disable nginx
-```
+[systemctl 명령어 참고](../linux-notes/setting/systemctl.md)
 
 5\. 로그
 --------------------------------------

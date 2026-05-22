@@ -47,9 +47,15 @@ Docker CLI와 Docker Compose 비교
 -----------------------------
 ```
 $ docker compose up -d      : compose 파일 실행시키기(=> 실행 후 `http://localhost:80` 들어가보기)
+$ docker compose -f compose1.yml up -d
 $ docker compose ps         : compose 실행 현황 보기
 $ docker ps                 : 일반 실행 현황에도 같이 나옴
 $ docker compose down       : compose로 실행된 컨테이너 삭제
+$ docker compose -f compose1.yml down
+
+- 주요 옵션:
+    - `-d`: 백그라운드 실행
+    - `-f`: 파일을 지정하는 옵션
 ```
 
 5\. Docker CLI ↔ Docker Compose 쉽게 작성하기
