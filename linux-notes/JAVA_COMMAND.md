@@ -18,6 +18,16 @@
     $ java -XX:+PrintCommandLineFlags -version
 ```
 
+4) jstack  : 자바 가상 머신(JVM) 내에서 실행 중인 특정 자바 프로세스의 스레드 덤프(Thread Dump)를 생성하는 유틸리티
+```
+- 주요 옵션:
+    -`l`	Long listing. 스택 정보와 함께 잠금(Lock)과 관련된 추가 정보를 출력합니다. (Deadlock 분석 시 필수)
+    -`F`	Force. 프로세스가 응답하지 않을 때 강제로 스레드 덤프를 생성합니다. (일반 jstack이 작동하지 않을 때 사용)
+    
+- 사용 예시:
+    jstack [옵션] <pid>
+```
+
 2\. jar파일 실행 옵션 설정
 -----------------------
 java [JVM 옵션] -jar [파일명.jar] [애플리케이션 인자]

@@ -10,6 +10,7 @@ filebeat 공부 노트
     특징: 별도의 설치 과정 없이 압축만 풀면 바로 실행되는 바이너리 독립형 패키지입니다.
     장점: 리눅스 시스템 루트(root) 권한 없이 계정 권한만으로 운영이 가능하고, 다른 시스템 파일들을 건드리지 않기 때문에 폐쇄망 
          반입 시 보안 팀의 결재를 받기가 가장 수월합니다.
+4. filebeat.yml 파일 수정
 ```
 
 2\. 준비물(리눅스용 바이너리)
@@ -27,22 +28,57 @@ Filebeat OSS (Apache 2.0)
 3\. 명령어
 --------------
 ```
-1) 문법 검사    : filebeat test config -c filebeat.yml
+1) 설정 파일 문법 검사                      : ./filebeat test config -c filebeat.yml
+2) 출력(Output) 대상과의 연결 상태 검사       : ./filebeat test output -c filebeat.yml
 ```
 
 4\. filebeat.yml
 --------------
 ```
+# 1. 입력 설정 (기존 설정 유지 + 필터링 추가)
 filebeat.inputs:
 - type: log
   enabled: true
   paths:
-    - /app/logs/online/*.log  # 자바 온라인 프로그램 로그 경로
-    - /app/logs/batch/*.log   # 자바 배치 프로그램 로그 경로
+    - /hli_app/log/was/DEV_PICA_HPF/nohup/*.log
+    - /hli_app/log/was/DEV_PICA_HGW/nohup/*.log
+    - /hli_app/log/pica/hbt/hpf/*.log
+    - /hli_app/log/pica/hbt/hms/*.log
 
-  # [핵심] 자바 스택 트레이스 통합 설정
   multiline.type: pattern
-  multiline.pattern: '^\[?[0-9]{4}-[0-9]{2}-[0-9]{2}' # 예: 2026-05-22 또는 [2026-05-22 로 시작하는 패턴
-  multiline.negate: true                            # 이 패턴으로 시작하지 않는 줄(들여쓰기 된 at... 등)은
-  multiline.match: after                            # 모두 앞 줄의 로그에 포함시킨다.
+  multiline.pattern: '^\[?[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+
+  # [핵심] 'Exception'이나 'Exception' 종류가 포함된 로그만 통과시킵니다.
+  processors:
+    - keep_fields: # 필요한 필드만 남기거나 복사할 때 사용 (선택사항)
+        fields: ["message", "log.file.path", "@timestamp"]
+    - drop_event:
+        when:
+          not:
+            regexp:
+              message: "(?i)exception" # (?i)는 대소문자 구분 없음 (Exception, exception 모두 매칭)
+
+# 2. API 호출을 위한 Output 설정
+output.http:
+  hosts: ["http://localhost:8080/api/logs"] # 데이터를 받을 수집 API 주소
+  method: "POST"
+  headers:
+    "Content-Type": "application/json"
+    "Authorization": "Bearer YOUR_TOKEN" # API 인증이 필요한 경우
+  retry.max: 3
+  compression_level: 3
+```
+
+5\. 오류
+--------------
+```
+[jcdoom@localhost filebeat-7.17.29-linux-x86_64]$ ./filebeat test config -c filebeat.yml
+Exiting: error initializing publisher: output type http undefined
+[jcdoom@localhost filebeat-7.17.29-linux-x86_64]$ ./filebeat test output -c filebeat.yml
+Error initializing output: output type http undefined
+    => Filebeat는 공식적으로 output.http라는 출력을 지원하지 않습니다.
+    => Elastic Stack(Elasticsearch, Logstash)에 최적화
+    => Filebeat는 "가공은 Logstash에 맡겨라" 스타일
 ```

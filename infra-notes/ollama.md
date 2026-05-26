@@ -25,6 +25,7 @@ POC 개인 노트북 환경
 	RAM			: 16GB
     flags       : avx, avx2 존재
 	glibc(GNU libc)     : 2.17
+	리눅스       : VirtualBox > CentOS7.9 
     openjdk1.8.0_201
         Link    : github.com/ojdkbuild/ojdkbuild/releases/tag/1.8.0.201-1
         설치형   : java-1.8.0-openjdk-1.8.0.201-1.b09.ojdkbuild.windows.x86_64.msi
