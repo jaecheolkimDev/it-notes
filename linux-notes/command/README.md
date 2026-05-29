@@ -180,7 +180,7 @@ v   : VISUAL모드로 변경(하단에 VISUAL라는 문구가 뜸)
 
 ```
 
-18) nohup   : 터미널을 닫아도 프로세스가 계속 유지함
+18) nohup(no hang up, 끊지마!)   : 터미널을 닫아도 프로세스가 계속 유지함
 ```
 nohup이라는 명령어로 프로그램을 실행시키면 nohup.out이라는 파일에 로그가 쌓이게끔 작동한다.
 $ nohup java -jar linux-springboot-0.0.1-SNAPSHOT.jar >> result.log 2>&1 &

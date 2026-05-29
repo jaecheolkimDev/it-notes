@@ -18,6 +18,8 @@ HTTP 응답(Response)은 클라이언트(브라우저, 앱 등)가 서버에 요
   3xx (Redirection)   : 301 Moved Permanently, 304 Not Modified
   4xx (Client Error)  : 400 Bad Request (잘못된 요청), 401 Unauthorized (인증 필요), 403 Forbidden (권한 없음)
                       , 404 Not Found (찾을 수 없음)
+                      , 405 Method Not Allowd (메서드 불일치)
+                      , 409 Conflict (요청 충돌)
   5xx (Server Error)  : 500 Internal Server Error (서버 내부 에러), 502 Bad Gateway, 502 Proxy Error, 503 Service Unavailable
                         , 504 타임 아웃
 ```
