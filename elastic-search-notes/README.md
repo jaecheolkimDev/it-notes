@@ -52,7 +52,7 @@ Elasticsearch는 검색 엔진이지만, 현대에는 NoSQL 데이터베이스�
     배달의민족의 검색 기능도 전부 Elasticsearch를 활용해 구현되어있다. (네이버나 구글은 자체적인 검색 엔진을 구축해서 사용한다.)
 ```
 
-5\. 작동 여부 확인
+5\. 작동 여부 확인ㅍ
 --------------
 Elasticsearch Port  : 9200
 ```
@@ -66,10 +66,8 @@ Kibana Port  : 5601
 1) Elasticsearch도 매번 cURL이나 Postman으로 요청을 보내기가 불편한 편이라서, 조금 더 편리하게 조작할 수 있는 GUI 툴이 존재한다. 
    대표적인 GUI 툴이 Kibana이다.
 
-MySQL Port  : 3306
-http://localhost:5601
-3선 Management Dev Tools
-GET /       : Elasticsearch에 요청 보내기
+http://localhost:5601   > 3선    > Management    > Dev Tools
+ - GET /       : Elasticsearch에 요청 보내기
 ```
 
 8\. Elasticsearch를 활용한 CRUD 기능
@@ -103,6 +101,44 @@ GET /       : Elasticsearch에 요청 보내기
 3. Field Length Normalization
     문서(필드)가 짧을수록 점수↑
     → 검색어가 짧은 문서에서 등장하면 더 관련성 높다고 판단
+```
+
+11\. 인프라 아키텍처 설계
+--------------
+```
+RDB는 트랜잭션 기반으로 데이터의 정합성을 보존해주는게 큰 장점이다. Elasticsearch는 빠른 검색에 최적화 되어 있다.
+현업에서는 이 2가지의 장점을 둘 다 활용하기 위해서 같이 사용한다. 동기화 문제는 카프카와 같은 메시지 큐를 활용한다.
+소규모에서는 애플리케이션 레벨에서 같이 동기화를 진행한다. 하지만, 치명적인 문제가 있다면 카프카를 사용해야 한다.
+```
+
+12\. AWS Opensearch vs Elastic Cloud
+--------------
+```
+Elasticsearch를 개발한 회사에서 Elasticsearch를 처음에는 오픈 소스로 오픈했다. 하지만 2021년 1월 이후로 Elasticsearch에 새로운 라이선스를 
+부과하면서 자유로운 활용이 금지되었다. AWS는 이에 반발해, 오픈 소스로 활용할 수 있었던 버전인 Elasticsearch 7.10.2 버전을 포크(fork)하여 
+자체적인 검색엔진을 개발하기 시작했다. 그게 바로 OpenSearch이다. 
+```
+
+13\. Elastic Cloud 비용
+--------------
+```
+- 시간당 0.0311 USD (24시간당 약 1000원)
+    - **참고)** Elastic Cloud를 처음 사용하는 유저라면 14일 간 무료로 사용할 수 있다.
+```
+
+11\.
+--------------
+```
+```
+
+11\.
+--------------
+```
+```
+
+11\.
+--------------
+```
 ```
 
 11\.

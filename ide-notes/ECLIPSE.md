@@ -44,11 +44,9 @@ F6으로 함수단위로 건너뛰다가 문제가 발생한만한곳에서는 F
   Reason: Hot code replace failed - Scheme change not implemented
 ```
 
-5\. 메시지
+5\. 
 -----------------------
 ```
-- Should referenced projects also be opened where applicable?
-    참조된 프로젝트도 해당될 경우 개방되어야 하는가? : applicable(해당되는)
 ```
 
 6\. Maven

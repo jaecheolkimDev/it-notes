@@ -34,7 +34,7 @@ Nginx를 더 많이 사용하는 가장 큰 이유는 Apache에 비해 훨씬 �
 
 4\. 실행
 --------------------------------------
-[systemctl 명령어 참고](../linux-notes/setting/systemctl.md)
+[systemctl 명령어 참고](../../../linux-notes/setting/systemctl.md)
 
 5\. 로그
 --------------------------------------

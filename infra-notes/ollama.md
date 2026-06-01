@@ -6,6 +6,8 @@ ollama 공부 노트
 ```
 1) AI 엔진 바이너리 파일 반입 (ollama)    : VirtualBox 게스트 확장을 통한 공유 폴더로 반입
 2) sLLM모델 바이너리 파일 반입 (Meta-Llama-3-8B-Instruct.Q4_K_M.gguf) : VirtualBox 게스트 확장을 통한 공유 폴더로 반입
+
+* 모델 서빙 : Ollama 바이너리를 실행하여 서버를 띄우고, API 엔드포인트를 열어두는 전체 과정입니다.
 ```
 
 3\. 로컬 개발 환경 설정
@@ -20,7 +22,7 @@ ollama 공부 노트
 
 POC 개인 노트북 환경
 	노트북 종류	: LG 그램
-	노트북 모델명 : 15z90s-g.ap76ml
+	노트북 모델명 : 15Z90S-G.AP76ML
 	프로세서		: Inter(R) Core(TM) Ultra 7 155 H 1.40GHz
 	RAM			: 16GB
     flags       : avx, avx2 존재
