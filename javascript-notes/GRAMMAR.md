@@ -29,9 +29,18 @@ const rejectedItems = trgtResults.filter(item => item.checkYn === 'N');
 
 ```
 
-2\. 
+2\. 템플릿 리터럴(Template Literal)
 -----------
 ```
+// \n 없이 그냥 엔터를 치면 되기 때문에 코드 가독성이 극대화됩니다.
+const message = `
+  안녕하세요, 고객님!
+  요청하신 작업이 성공적으로 완료되었습니다.
+  
+  [안내 사항]
+  - 점검 시간: 새벽 2시 ~ 4시
+  - 문의 사항은 고객센터를 이용해 주세요.
+`
 ```
 
 

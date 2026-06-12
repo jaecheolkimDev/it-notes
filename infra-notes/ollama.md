@@ -8,16 +8,21 @@ ollama 공부 노트
 2) sLLM모델 바이너리 파일 반입 (Meta-Llama-3-8B-Instruct.Q4_K_M.gguf) : VirtualBox 게스트 확장을 통한 공유 폴더로 반입
 
 * 모델 서빙 : Ollama 바이너리를 실행하여 서버를 띄우고, API 엔드포인트를 열어두는 전체 과정입니다.
+             Loading (모델 로드) -> API Endpoint (접점 생성) -> Inference (추론) -> Response (응답)
 ```
 
 3\. 로컬 개발 환경 설정
 --------------
 ```
 폐쇄망 개발서버 환경
-	OS 종류		: LINUX
 	OS 버전		: OS Red Hat Enterprise Linux Server release 7.6 (Maipo)
 	RAM			: 64GB
     flags       : avx, avx2, avx512 존재
+	glibc(GNU libc)     : 2.17
+
+1차 서버 환경
+    OS: CentOS Linux release 7.8.2003 (커널 3.10)
+    CPU : Intel Xeon Processor (Cascadelake)
 	glibc(GNU libc)     : 2.17
 
 POC 개인 노트북 환경
@@ -33,6 +38,8 @@ POC 개인 노트북 환경
         설치형   : java-1.8.0-openjdk-1.8.0.201-1.b09.ojdkbuild.windows.x86_64.msi
     STS 2.7.18
         pom.xml 수정
+
+
 
 1) RHEL 7.6과 1:1로 대응되는 무료 버전인 CentOS7를 사용해서 POC 수행.
     - 커널이나 패키지 의존성까지 폐쇄망 환경과 99% 맞춰볼 수 있음.
@@ -119,7 +126,7 @@ POC 개인 노트북 환경
 # 체크 완료 #
 ############
 1) 가상머신 CPU 설정 체크 (CPU의 연산 가속 기능 확인)   : $ cat /proc/cpuinfo
-2) glibc(GNU libc) 체크     : $ldd --version
+2) glibc(GNU libc) 체크     : $ ldd --version
 3) 서버 자원 사용량            : 4core, 5/8GB
 ```
 
