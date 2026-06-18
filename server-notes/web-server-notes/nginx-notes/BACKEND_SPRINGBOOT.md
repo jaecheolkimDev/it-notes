@@ -60,9 +60,4 @@ $ sudo vi api.jscode.p-e.kr.conf
 
 6\. 변경된 Nginx 설정 내용 적용하기
 --------------------------------------
-```
-# Nginx 설정 파일 중 문법 에러가 있는 지 체크
-    $ sudo nginx -t
-# Nginx의 설정 파일이 바뀐 경우 아래 명령어를 입력해줘야 설정 파일이 반영된다.
-    $ sudo nginx -s reload
-```
+[설정 파일 수정 후 명령어](./Config.md)

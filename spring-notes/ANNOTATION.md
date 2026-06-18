@@ -113,9 +113,13 @@ Spring Annotation 공부 노트
 @Configuration, @Controller, @Service, @Repository 등의 애노테이션들은 @Component 애노테이션을 포함하고 있습니다.
 ```
 
-4\.
+5\. properties 읽어오기
 ------------------
 ```
+1) @Value( "${jdbc.url}" )
+2) @ConfigurationProperties(prefix = "mail")
+3) @ConfigurationPropertiesScan 
+4) @ConfigurationPropertiesScan("com.baeldung.configurationproperties")
 ```
 
 4\.

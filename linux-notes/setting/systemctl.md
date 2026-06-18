@@ -25,9 +25,13 @@ service / systemd / systemctl
     $ sudo systemctl disable firewalld
     $ sudo systemctl status firewalld
 2) 도커   : docker
-    $ systemctl start docker      : 서비스가 꺼져 있다면 시작
-    $ systemctl stop nginx        : 중지  
+    $ systemctl start docker      : 서비스가 꺼져 있다면 시작  
     $ systemctl status docker     : 서비스 상태 확인
-    $ systemctl enable docker     : 부팅할 때마다 도커가 알아서 켜지도록 설정
-    $ sudo systemctl disable nginx  : 해지
+    $ systemctl enable docker     : 부팅할 때마다 알아서 켜지도록 설정
+3) NginX
+    $ systemctl start nginx      : 서비스가 꺼져 있다면 시작  
+    $ systemctl stop nginx        : 중지
+    $ systemctl disable nginx  : 해지  
+    $ systemctl enable docker     : 부팅할 때마다 알아서 켜지도록 설정
+    $ systemctl status nginx     : 서비스 상태 확인
 ```

@@ -43,8 +43,10 @@ BATCH_STEP_EXECUTION_CONTEXT    Step 실행 도중 또는 종료 시            
 
 2) DDL 쿼리 위치
 스프링 배치 의존성 내부에 각 DB별 기본 생성 스크립트가 포함되어 있습니다. 이를 참고해서 컬럼 사이즈만 살짝 수정해 사용하시면 편리합니다.
-
-위치: org/springframework/batch/core/schema-*.sql (라이브러리 jar 파일 내부)
+    - 위치: org/springframework/batch/core/schema-*.sql (라이브러리 jar 파일 내부)
+    
+3) 스프링 배치 4.2.1
+BatchConfigurer.java를 구현한 설정 파일의 getJobRepository메소드에서 DB관련 설정(스키마, isolation level, prefix 등)을 세팅.
 ```
 
 5\. Chunk
