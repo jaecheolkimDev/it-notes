@@ -1,4 +1,4 @@
-Nginx Frontend(HTML, CSS, JS) 배포 공부 노트
+Nginx Frontend(HTML, CSS, JS) 배포
 =====================
 
 1\. HTML, CSS, JS 웹 프로젝트를 EC2로 가져오기  

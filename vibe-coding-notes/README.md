@@ -1,4 +1,4 @@
-Vibe Coding 공부 노트
+Vibe Coding
 =================
 
 

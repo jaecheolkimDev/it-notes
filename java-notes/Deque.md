@@ -1,4 +1,4 @@
-JAVA Deque 공부 노트
+JAVA Deque
 =================
 ArrayDeque는 스택(Stack)과 큐(Queue)의 기능을 모두 가진 Double-Ended Queue(Deque)입니다.
 

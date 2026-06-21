@@ -1,4 +1,4 @@
-JAVA Stream 공부 노트
+JAVA Stream
 =============
 
 0\. 함수형 언어

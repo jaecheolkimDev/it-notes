@@ -1,4 +1,4 @@
-ElastiCache 공부 노트
+ElastiCache
 =================
 
 1\. 개요

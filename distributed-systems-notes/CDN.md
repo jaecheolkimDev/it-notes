@@ -1,4 +1,4 @@
-CDN(Content Delivery Network) 공부 노트
+CDN(Content Delivery Network)
 =================
 
 1\. 개념

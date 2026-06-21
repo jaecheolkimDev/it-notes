@@ -1,4 +1,4 @@
-RPC(Remote Procedure Call, 원격 프로시저 호출) 공부 노트
+RPC(Remote Procedure Call, 원격 프로시저 호출)
 =================
 
 1\. 개념

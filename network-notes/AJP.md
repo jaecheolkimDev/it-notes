@@ -1,4 +1,4 @@
-AJP(Apache JServ Protocol) 공부 노트
+AJP(Apache JServ Protocol)
 =====================
 
 1\. AJP 프로토콜의 역할 (왜 쓰는가?)

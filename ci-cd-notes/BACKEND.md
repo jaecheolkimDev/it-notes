@@ -1,4 +1,4 @@
-CI/CD BackEnd 공부 노트
+CI/CD BackEnd
 =================
 
 1\. 개인 프로젝트에서 많이 쓰는 CI/CD 구축 방법 (Github Actions)

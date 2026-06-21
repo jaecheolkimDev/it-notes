@@ -1,4 +1,4 @@
-확장(Scale) 공부 노트
+확장(Scale)
 ================
 
 1\. 수직적 확장 (Vertical Scaling / Scale-up)

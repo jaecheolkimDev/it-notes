@@ -1,4 +1,4 @@
-k8s Minikube 공부 노트
+k8s Minikube
 =================
 
 1\. Minikube 설치 및 세팅

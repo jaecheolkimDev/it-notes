@@ -1,4 +1,4 @@
-k8s kubectl 공부 노트
+k8s kubectl
 =================
 
 

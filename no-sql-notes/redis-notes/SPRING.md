@@ -1,4 +1,4 @@
-spring-data-redis:2.2.5 공부 노트
+spring-data-redis:2.2.5
 ===============
 
 

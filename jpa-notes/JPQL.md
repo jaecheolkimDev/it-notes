@@ -1,4 +1,4 @@
-JPQL ( Java Persistence Query Language ) 공부 노트
+JPQL ( Java Persistence Query Language )
 ===========================================
 
 1\. JPQL ( Java Persistence Query Language )

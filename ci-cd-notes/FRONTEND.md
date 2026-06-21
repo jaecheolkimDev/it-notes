@@ -1,4 +1,4 @@
-CI/CD FrontEnd 공부 노트
+CI/CD FrontEnd
 =================
 
 1\. Next.js 프로젝트에 CI/CD 적용하기 (Vercel)

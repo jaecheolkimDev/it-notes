@@ -1,4 +1,4 @@
-EC2(Elastic Compute Cloud) 공부 노트
+EC2(Elastic Compute Cloud)
 =================
 
 1\. 개요

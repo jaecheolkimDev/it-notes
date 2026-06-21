@@ -1,4 +1,4 @@
-DB 트랜잭션 격리수준(Isolation Level) 공부 노트
+DB 트랜잭션 격리수준(Isolation Level)
 =============
 
 

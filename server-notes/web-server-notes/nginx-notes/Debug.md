@@ -1,4 +1,4 @@
-Nginx Debug 공부 노트
+Nginx Debug
 =====================
 
 7\. Nginx 에러 디버깅 방법

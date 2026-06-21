@@ -1,4 +1,4 @@
-Nginx Frontend(React, Vite) 배포 공부 노트
+Nginx Frontend(React, Vite) 배포
 =====================
 
 1\. React 프로젝트를 EC2로 가져오기

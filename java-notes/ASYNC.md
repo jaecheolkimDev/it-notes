@@ -1,4 +1,4 @@
-JAVA ASYNC 공부 노트
+JAVA ASYNC
 =================
 
 1\. CompletableFuture

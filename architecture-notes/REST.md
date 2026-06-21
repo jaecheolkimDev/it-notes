@@ -1,4 +1,4 @@
-REST(Representational State Transfer) 공부 노트
+REST(Representational State Transfer)
 =================
 
 1\. 개요

@@ -1,4 +1,4 @@
-JavaScript 문법 공부 노트
+JavaScript 문법
 =============
 
 1\. Array

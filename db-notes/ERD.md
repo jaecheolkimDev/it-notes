@@ -1,4 +1,4 @@
-ERD(Entity Relationship Diagram) 공부 노트
+ERD(Entity Relationship Diagram)
 =============
 
 1\. 개념

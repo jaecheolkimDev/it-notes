@@ -1,4 +1,4 @@
-proxy 공부 노트
+proxy
 =====================
 
 1\. Forward Proxy

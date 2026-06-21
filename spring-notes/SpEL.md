@@ -1,4 +1,4 @@
-Spring Expression Language (SpEL) 공부 노트
+Spring Expression Language (SpEL)
 =================
 
 

@@ -1,4 +1,4 @@
-Javascript engine 공부 노트
+Javascript engine
 =====================
 2023.07 NASHORN ISSUE : 최초 eval시 코스트가 커서 룰을 많이 쓰면 성능이슈가 있을 수 있음
 - sheet 2만건(코드 10만 Line) eval에 5초걸림.

@@ -1,4 +1,4 @@
-DL(Interface Definition Language, 인터페이스 정의 언어) 공부 노트
+DL(Interface Definition Language, 인터페이스 정의 언어)
 =================
 
 1\. 개념

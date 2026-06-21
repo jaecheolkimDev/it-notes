@@ -1,4 +1,4 @@
-DB TYPE 공부 노트
+DB TYPE
 =============
 
 1\. TYPE

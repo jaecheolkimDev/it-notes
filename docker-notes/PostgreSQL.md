@@ -1,4 +1,4 @@
-DOCKER PostgreSQL 공부 노트
+DOCKER PostgreSQL
 ================
 
 1\. 사전 작업

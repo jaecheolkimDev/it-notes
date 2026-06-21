@@ -1,4 +1,4 @@
-Spring Batch 공부 노트
+Spring Batch
 =================
 
 ```

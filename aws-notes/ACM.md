@@ -1,4 +1,4 @@
-ACM(AWS Certificate Manager) 공부 노트
+ACM(AWS Certificate Manager)
 =================
 
 1\. HTTPS 적용을 위해 인증서 발급받기

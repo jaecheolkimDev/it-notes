@@ -1,4 +1,4 @@
-SDM(Software Development Methodology) 공부 노트
+SDM(Software Development Methodology)
 ================
 
 1\. 애자일

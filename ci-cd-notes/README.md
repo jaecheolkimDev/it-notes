@@ -1,4 +1,4 @@
-CI/CD 공부 노트
+CI/CD
 =================
 CI/CD란 Continuous Integration, Continuous Deployment라는 의미를 가지고 있다. 
 말이 너무 어렵다. 

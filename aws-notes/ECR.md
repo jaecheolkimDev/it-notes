@@ -1,4 +1,4 @@
-ECR(Elastic Container Registry) 공부 노트
+ECR(Elastic Container Registry)
 =================
 
 1\. 

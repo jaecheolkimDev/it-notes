@@ -1,4 +1,4 @@
-JAVA JUnit 공부 노트
+JAVA JUnit
 =================
 
 1\. Mock

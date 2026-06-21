@@ -1,4 +1,4 @@
-DOCKER Nginx 공부 노트
+DOCKER Nginx
 ================
 
 1\. 

@@ -1,4 +1,4 @@
-Docker Compose 공부 노트
+Docker Compose
 ================
 
 

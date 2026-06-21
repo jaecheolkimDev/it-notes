@@ -1,4 +1,4 @@
-Elasticsearch 공부 노트
+Elasticsearch
 ======================
 검색, 데이터 분석에 최적화된 데이터베이스
 

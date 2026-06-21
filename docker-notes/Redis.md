@@ -1,4 +1,4 @@
-DOCKER Redis 공부 노트
+DOCKER Redis
 ================
 
 1\. 

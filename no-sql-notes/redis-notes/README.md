@@ -1,4 +1,4 @@
-REDIS(Remote Dictionary Server) 공부 노트
+REDIS(Remote Dictionary Server)
 ===============
 
 ```

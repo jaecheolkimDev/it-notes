@@ -1,4 +1,4 @@
-운영체제(OS, Operating System) 공부 노트
+운영체제(OS, Operating System)
 ======================
 
 

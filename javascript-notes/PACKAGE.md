@@ -1,4 +1,4 @@
-Javascript Package 공부 노트
+Javascript Package
 =====================
 
 1\. 일반적인 자바스크립트 프로젝트 폴더 구조

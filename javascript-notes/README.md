@@ -1,4 +1,4 @@
-Javascript 공부 노트
+Javascript
 =====================
 
 1\. ECMAScript6

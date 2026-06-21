@@ -1,4 +1,4 @@
-DDL 공부 노트
+DDL
 =============
 
 1\. DDL (Data Definition Language, 데이터 정의어)

@@ -1,4 +1,4 @@
-운영체제(OS, Operating System)의 Thread 공부 노트
+운영체제(OS, Operating System)의 Thread
 =====================
 
 2\. 프로세스(Process) 와 쓰레드(Thread)의 차이점

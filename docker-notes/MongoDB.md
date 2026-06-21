@@ -1,4 +1,4 @@
-DOCKER MongoDB 공부 노트
+DOCKER MongoDB
 ================
 
 1\. 사전 작업

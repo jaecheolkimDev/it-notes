@@ -1,4 +1,4 @@
-JAVA Escape 공부 노트
+JAVA Escape
 =================
 
 1\. Escape란?

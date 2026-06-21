@@ -1,4 +1,4 @@
-Aurora and RDS 공부 노트
+Aurora and RDS
 =================
 
 1\. 개요

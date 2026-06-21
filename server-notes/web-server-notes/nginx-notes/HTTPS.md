@@ -1,4 +1,4 @@
-Nginx 공부 노트
+Nginx
 =====================
 
 9\. Nginx, Certbot을 활용해 HTTPS 적용시키기

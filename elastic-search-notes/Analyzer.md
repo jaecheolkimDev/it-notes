@@ -1,4 +1,4 @@
-Elasticsearch 공부 노트
+Elasticsearch
 ======================
 
 1\. 애널라이저(Analyzer)

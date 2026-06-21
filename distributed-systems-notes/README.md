@@ -1,4 +1,4 @@
-분산 시스템(Distributed Systems) 공부 노트
+분산 시스템(Distributed Systems)
 ================
 
 1\. 경쟁 상태(Race Condition)

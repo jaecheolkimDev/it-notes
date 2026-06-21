@@ -1,4 +1,4 @@
-NAT 주소 공부 노트
+NAT 주소
 =====================
 
 1\. NAT(Network Address Translation, 네트워크 주소 변환)

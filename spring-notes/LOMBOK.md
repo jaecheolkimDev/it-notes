@@ -1,4 +1,4 @@
-Spring Lombok 공부 노트
+Spring Lombok
 =================
 Java 기반에서 기계적으로 작성하는 VO, DTO, Entity 관련 작업을 보다 쉽게 하게 해주는 도구.
 

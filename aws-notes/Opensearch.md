@@ -1,4 +1,4 @@
-Opensearch 공부 노트
+Opensearch
 =================
 
 1\. 개요

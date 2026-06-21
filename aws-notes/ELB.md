@@ -1,4 +1,4 @@
-ELB(Elastic Load Balancer) 공부 노트
+ELB(Elastic Load Balancer)
 =================
 
 1\. 개요

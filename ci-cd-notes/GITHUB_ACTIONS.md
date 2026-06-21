@@ -1,4 +1,4 @@
-Github Actions 공부 노트
+Github Actions
 =================
 
 1\. GitHub Actions 워크플로우 YAML 파일의 구조

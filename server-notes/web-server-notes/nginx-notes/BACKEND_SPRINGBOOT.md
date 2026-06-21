@@ -1,4 +1,4 @@
-Nginx Backend(Spring Boot) 배포 공부 노트
+Nginx Backend(Spring Boot) 배포
 =====================
 
 1\. JDK 17 설치하기

@@ -1,4 +1,4 @@
-메시지 큐(Message Queue, MQ) 공부 노트
+메시지 큐(Message Queue, MQ)
 =================
 
 1\. 정의

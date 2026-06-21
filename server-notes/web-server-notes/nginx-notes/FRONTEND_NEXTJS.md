@@ -1,4 +1,4 @@
-Nginx Frontend(Next.js) 배포 공부 노트
+Nginx Frontend(Next.js) 배포
 =====================
 
 1\. Next.js 프로젝트를 EC2로 가져오기

@@ -1,4 +1,4 @@
-Podman(Pod Manager) 공부 노트
+Podman(Pod Manager)
 ================
 
 1\. 개념

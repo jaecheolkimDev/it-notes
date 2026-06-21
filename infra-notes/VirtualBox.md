@@ -1,4 +1,4 @@
-VirtualBox 공부 노트
+VirtualBox
 ======================
 
 1\. VirtualBox

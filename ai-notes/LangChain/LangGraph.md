@@ -1,4 +1,4 @@
-AI LangGraph 공부 노트
+AI LangGraph
 ======================
 
 

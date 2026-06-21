@@ -1,4 +1,4 @@
-data-analysis 공부 노트
+data-analysis
 =====================
 
 1\. 변경 데이터 캡처(CDC, Change Data Capture)

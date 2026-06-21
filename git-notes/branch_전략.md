@@ -1,4 +1,4 @@
-Git Branch 전략 공부 노트
+Git Branch 전략
 ======================
 
 1\. Git Flow (모바일 애플리케이션 개발에 적합한 Flow)

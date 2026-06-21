@@ -1,4 +1,4 @@
-DOCKER MySQL 공부 노트
+DOCKER MySQL
 ================
 
 1\. 사전 작업

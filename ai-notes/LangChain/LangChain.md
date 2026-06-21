@@ -1,4 +1,4 @@
-AI LangChain 공부 노트
+AI LangChain
 ======================
 
 

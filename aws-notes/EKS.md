@@ -1,4 +1,4 @@
-EKS(Elastic Kubernetes Service) 공부 노트
+EKS(Elastic Kubernetes Service)
 =================
 
 1\. 개요

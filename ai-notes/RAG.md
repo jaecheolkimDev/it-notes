@@ -1,7 +1,15 @@
-AI RAG 공부 노트
+RAG(Retrieval-Augmented Generation, 검색 증강 생성)
 ======================
 
-1\. RAG(Retrieval-Augmented Generation, 검색 증강 생성)
+1\. 개념
+--------------
+```
+R (Retrieval): 벡터 DB(Chroma 등)에서 질문과 관련된 사내 문서 찾기
+A (Augmentation): 질문과 찾은 문서를 합쳐서 AI용 프롬프트 만들기
+G (Generation): LLM API를 통해 그 프롬프트를 입력하고 최종 답변 받아오기
+```
+
+2\. 
 --------------
 AI에게 오픈북 테스트를 시키는 기술
 ```
@@ -28,7 +36,7 @@ AI에게 오픈북 테스트를 시키는 기술
     대화가 가능해집니다.
 ```
 
-2\. JSON vs VectorDB
+3\. JSON vs VectorDB
 --------------
 ```
 1) JSON

@@ -1,4 +1,4 @@
-Apache HTTP Server 공부 노트
+Apache HTTP Server
 =====================
 
 1\. Apache HTTP Server

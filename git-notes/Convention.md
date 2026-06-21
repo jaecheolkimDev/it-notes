@@ -1,4 +1,4 @@
-Git - Commit Message Convention 공부 노트
+Git - Commit Message Convention
 ======================
 
 1\. Commit Type
