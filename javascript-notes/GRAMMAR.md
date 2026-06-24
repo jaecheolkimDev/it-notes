@@ -27,6 +27,14 @@ trgtResults.forEach(item => {
 // filter() 총 몇 개인지 혹은 어떤 항목인지 정보가 필요하다면 이 방식이 좋습니다.
 const rejectedItems = trgtResults.filter(item => item.checkYn === 'N');
 
+// map()    : 배열의 각 요소를 돌며 내가 원하는 형태로 변형(매핑)한 새로운 배열을 반환합니다.
+const filteredList = originalList.map(item => {
+  return {
+    rdsLogicalName: item.rdsLogicalName,
+    rdsPhysicalName: item.rdsPhysicalName
+  };
+});
+
 ```
 
 2\. 템플릿 리터럴(Template Literal)
@@ -43,28 +51,25 @@ const message = `
 `
 ```
 
-
-
-3\. 
+3\. length, size
 --------
 ```
+1) length — 배열(Array)과 문자열(String)에 사용
+    배열과 문자열은 내부에 데이터가 몇 개 있는지 나타내는 length 프로퍼티를 기본적으로 가지고 있습니다.
+2) size — Set과 Map에 사용
+    size는 자바스크립트의 최신 문법(ES6)에서 등장한 특수한 자료구조인 Set(중복을 허용하지 않는 데이터 집합)이나 Map(키-값 쌍으로 이루어진 집합)의 크기를 
+    구할 때 사용합니다.
 ```
-
-
-
 
 4\. 
 --------
 ```
 ```
 
-
-
 5\. 
 --------
 ```
 ```
-
 
 6\. 
 --------

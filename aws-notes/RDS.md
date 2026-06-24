@@ -93,6 +93,7 @@ Username    : 마스터 사용자 이름(Aurora and RDS 데이터베이스 만�
 Password    : 마스터 암호(Aurora and RDS 데이터베이스 만들 때 정함)
 
 * 엔드포인트(Endpoint)   : 특정 리소스(ex. 서버, DB 등)에 접근할 수 있도록 해주는 URL을 의미한다.
+    ex) /v1/users
 ```
 
 

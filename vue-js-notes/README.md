@@ -98,6 +98,7 @@ Vue는 성능을 위해 데이터가 변할 때마다 즉시 DOM을 수정하지
 -----------------------
 ```
 VueJS를 사용하면서 객체 데이터나 배열 데이터를 사용하게 되면 새로운 속성 및 데이터가 추가되거나 삭제되는 것을 감지하지 못하는 경우가 자주 생긴다.
+    ex) 배열의 push
 여기서 "값이 갱신되었다." 라고 요청을 하는 메서드인Vue.set / $set 와 Vue.delete / $delete 가 존재한다.
 
 배열 : Vue.set(arr, index, value) // == this.$set(arr, index, value)
