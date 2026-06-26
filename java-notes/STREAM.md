@@ -24,6 +24,17 @@ JAVA Stream
     List<String> stringList = longList.stream()
                                   .map(String::valueOf) // String.valueOf(long) 호출
                                   .collect(Collectors.toList());
+1) List<Object>을 List<Long>으로 변환
+    List<Long> idList = rawList.stream()
+        .map(obj -> ((Number) obj).longValue()) // BigDecimal, BigInteger 모두 Number를 상속받으므로 안전함
+        .collect(Collectors.toList());
+
+1) List<Map>을 List<Long>으로 변환
+    List<Long> tableSuids = result.stream()
+        .map(map -> map.get("tableSuid"))
+        .filter(java.util.Objects::nonNull)
+        .map(value -> Long.valueOf(value.toString())) // String으로 바꾼 뒤 Long으로 안전하게 파싱
+        .collect(Collectors.toList());
                                   
 2) Iterable -> List 변환  (java.lang.Iterable<Object> -> java.util.List<Object>)
     java.util.List<Object> list = com.google.common.collect.ImmutableList.copyOf(iterable);
