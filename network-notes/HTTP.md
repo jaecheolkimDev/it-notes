@@ -20,6 +20,7 @@ HTTP 응답(Response)은 클라이언트(브라우저, 앱 등)가 서버에 요
                       , 404 Not Found (찾을 수 없음)
                       , 405 Method Not Allowd (메서드 불일치)
                       , 409 Conflict (요청 충돌)
+                      , 413 Request Entity Too Large (요청 데이터가 서버에서 허용하는 한도를 초과함) 
   5xx (Server Error)  : 500 Internal Server Error (서버 내부 에러), 502 Bad Gateway, 502 Proxy Error, 503 Service Unavailable
                         , 504 타임 아웃
 ```
