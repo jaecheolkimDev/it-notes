@@ -2,7 +2,7 @@ JAVA List
 =================
 
 1\. 
--------------------
+-----------
 ```
 1) List에서 조건에 만족하는 항목들 삭제.
     polnDatList.removeIf(e -> StringUtils.isEmpty(e.getStlmMeanSuid()));

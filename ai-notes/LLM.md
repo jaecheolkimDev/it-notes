@@ -26,7 +26,7 @@ LLM(Large Language Model		 거대 언어 모델)
                           기술입니다.
 ```
 
-2\. sLLM(Small Large Language Model		 소형 거대언어모델)
+2\. sLLM(Small Large Language Model, 소형 거대언어모델)
 --------------
 수천억 개의 파라미터를 가진 거대 모델(LLM)과 달리		 파라미터 수를 수십억~백억 개(7B		 8B		 10B 등) 수준으로 줄인 모델을 의미합니다.
 ```
@@ -56,6 +56,17 @@ LLM(Large Language Model		 거대 언어 모델)
                                      자바(JDK 1.8)와 연동이 가능합니다.
     토큰 처리 (Tokenization)        : sLLM은 한 번에 처리할 수 있는 토큰 양(Context Window)이 거대 모델보다 작을 수 있습니다. 
                                      따라서 RAG 구현 시 문서를 잘게 잘라서 필요한 것만 넣어주는 전략이 중요합니다.
+
+5) 바이너리 파일
+Meta-Llama-3-8B-Instruct.Q4_K_M.gguf    : 
+    Meta Llama 3: 메타가 개발한 고성능 오픈소스 대형 언어 모델(LLM) 시리즈입니다. 이전 세대(Llama 2)에 비해 데이터 학습량이 압도적으로 늘어나서(약 15조 개의 토큰) 언어 이해, 추론, 코딩 능력이 비약적으로 상승했습니다.
+    8B (8 Billion Parameters): 모델의 매개변수(파라미터)가 약 80억 개라는 뜻입니다. LLM 세계에서는 '경량급'에 속하지만, 웬만한 이전 세대 대형 모델보다 똑똑하며 개인 PC나 로컬 환경에서도 구동이 가능하다는 엄청난 장점이 있습니다.
+    Instruct: 챗봇처럼 사용자의 명령(Instruction)을 이해하고 대화 인터페이스에 맞게 답변하도록 미세조정(Fine-tuning)된 모델입니다. (반대 개념인 'Base' 모델은 단순히 뒤에 올 말을 이어 쓰는 기능만 합니다.)
+    
+    Q4 (4-bit Quantization): 모델의 가중치 데이터를 4비트 수준으로 압축했다는 뜻입니다. 원래 크기보다 용량이 대폭 줄어듭니다.
+    K_M (K-Quant Medium): llama.cpp 프로젝트에서 개발한 고급 양자화 기술(K-quant) 중 Medium(중간) 옵션을 적용했다는 의미입니다.
+    
+    GGUF (GPT-Generated Unified Format): 로컬 PC 환경(특히 CPU 및 Apple Silicon Mac, 일반 그래픽카드)에서 모델을 빠르고 효율적으로 로드하고 추론할 수 있도록 최적화된 파일 포맷입니다.
 ```
 
 3\. 종류

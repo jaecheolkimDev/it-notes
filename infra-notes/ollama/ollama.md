@@ -1,14 +1,59 @@
 ollama
 ======================
 
-1\. 진행 순서
+1\. 반입 순서
 --------------
 ```
-1) AI 엔진 바이너리 파일 반입 (ollama)    : VirtualBox 게스트 확장을 통한 공유 폴더로 반입
-2) sLLM모델 바이너리 파일 반입 (Meta-Llama-3-8B-Instruct.Q4_K_M.gguf) : VirtualBox 게스트 확장을 통한 공유 폴더로 반입
+1) [AI 엔진] 리눅스 바이너리 파일 반입 (ollama)    : VirtualBox 게스트 확장을 통한 공유 폴더로 반입
+    다운로드 경로     : github.com/ollama/ollama/releases?page=15
+                        v.0.1.48 > Assets > ollama-linux-amd64
+    포트 번호    : 11434
+2) [sLLM모델] 바이너리 파일 반입                  : VirtualBox 게스트 확장을 통한 공유 폴더로 반입
+                Llama 3 (Meta): 현재 가장 인기 있는 모델로, 성능이 매우 뛰어나며 다양한 크기(8B, 70B 등)를 제공합니다.
+               Meta-Llama-3-8B-Instruct.Q4_K_M.gguf (약 4.9GB, 가장 밸런스가 좋습니다.)
+    다운로드 경로     : huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/tree/main
 
 * 모델 서빙 : Ollama 바이너리를 실행하여 서버를 띄우고, API 엔드포인트를 열어두는 전체 과정입니다.
              Loading (모델 로드) -> API Endpoint (접점 생성) -> Inference (추론) -> Response (응답)
+```
+
+1\. 실행 전처리
+--------------
+```
+$ ls -l ollama-linux-amd64          : 파일 권한 확인하기 (-rw-rw-r--)
+$ chmod +x ollama-linux-amd64       : 실행 권한 부여하기 (-rwxrwxr-x)
+$ ./ollama-linux-amd64 --version         : 버전 확인
+Modelfile 생성/작성 : 설계도(Modelfile)를 수정하면, 엔진에 다시 반영(Create)해 주어야 합니다.
+                   커스텀 모델 생성 명령어(빌드) 수행해야함. 
+
+모델명 조회      : $ ./ollama-linux-amd64 list
+```
+
+1\. 실행 방법
+--------------
+```
+1) AI엔진 실행
+    $ ./ollama-linux-amd64 serve             : 포그라운드 실행
+    $ ./ollama-linux-amd64 serve > ollama.log 2>&1 &         : 서버를 백그라운드로 실행하고 로그는 ollama.log 파일에 저장하기
+    $ OLLAMA_HOST=0.0.0.0:11434 nohup ./ollama-linux-amd64 serve > ollama.log 2>&1 &     : 아웃바운딩 열어줌 (모든 IP에서의 접근을 허용)
+    $ nohup ./ollama-linux-amd64 serve > ollama.log 2>&1 &   : 터미널이 끊겨도 유지
+
+2) sLLM모델 빌드 및 실행
+    커스텀 모델 생성 (빌드)   : ollama create [만들 모델 이름] -f [설계도 파일 경로]
+                       $ ./ollama-linux-amd64 create paprica-llm -f ./Modelfile
+    CLI 테스트 (질문 시작!)    : $ ./ollama-linux-amd64 run paprica-llm
+```
+
+2\. RAG 질의 순서
+--------------
+```
+1) VirtualBox 실행
+2) putty 실행
+3) 명령어 실행   : $ OLLAMA_HOST=0.0.0.0:11434 nohup ./ollama-linux-amd64 serve > ollama.log 2>&1 &
+4) 8080 스프링 서버 실행
+5) 최초 문서 업로드 : /api/documents/parse
+6) 추가 문서 업로드 : /api/documents/append
+7) RAG 질의 수행    : /api/rag/query
 ```
 
 3\. 로컬 개발 환경 설정
@@ -45,50 +90,24 @@ POC 개인 노트북 환경
     - 커널이나 패키지 의존성까지 폐쇄망 환경과 99% 맞춰볼 수 있음.
 ```
 
+1\.
+--------------
+```
+```
+
+1\.
+--------------
+```
+```
+
+1\.
+--------------
+```
+```
+
 996\. 준비물(리눅스용 바이너리)
 --------------
 ```
-1)     : Ollama 리눅스용 바이너리 (또는 Docker Image)
-   Link     : github.com/ollama/ollama/releases?page=15
-   v.0.1.48 > Assets > ollama-linux-amd64 (리눅스용 바이너리)
-   $ ./ollama-linux-amd64 --version         : 버전 확인
-   $ ./ollama-linux-amd64 serve             : 포그라운드 실행
-   $ ./ollama-linux-amd64 serve > ollama.log 2>&1 &         : 서버를 백그라운드로 실행하고 로그는 ollama.log 파일에 저장하기
-   $ OLLAMA_HOST=0.0.0.0:11434 nohup ./ollama-linux-amd64 serve > ollama.log 2>&1 &     : 아웃바운딩 열어줌
-   $ nohup ./ollama-linux-amd64 serve > ollama.log 2>&1 &   : 터미널이 끊겨도 유지
-   systemd 서비스 등록           : 서버가 부팅될 때 자동으로 다시 켜지고, 죽어도 리눅스가 다시 살려냄.
-   포트 번호    : 11434
-2) 경량화된 LLM 모델 : 
-                Llama 3 (Meta): 현재 가장 인기 있는 모델로, 성능이 매우 뛰어나며 다양한 크기(8B, 70B 등)를 제공합니다.
-               Meta-Llama-3-8B-Instruct.Q4_K_M.gguf (약 4.9GB, 가장 밸런스가 좋습니다.)
-    Link    : huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/tree/main
-    Modelfile작성 (cat 명령어로 파일 내용 바로 밀어넣기)     : 설계도(Modelfile)를 수정하면, 엔진에 다시 반영(Create)해 주어야 합니다.
-                                                         커스텀 모델 생성 명령어(빌드) 수행해야함. 
-        cat << 'EOF' > Modelfile
-        FROM ./Meta-Llama-3-8B-Instruct.Q4_K_M.gguf
-        
-        # SYSTEM 지시문을 통해 한글 답변을 강제합니다.
-        SYSTEM """
-        You are a helpful, professional AI assistant. You must always answer and respond in Korean (한국어). 
-        개발 관련 질문에는 친절하고 명확한 한글 코드로 답변해 주세요.
-        """
-
-        TEMPLATE """{{ if .System }}<|start_header_id|>system<|end_header_id|>
-        
-        {{ .System }}<|eot_id|>{{ end }}{{ if .Prompt }}<|start_header_id|>user<|end_header_id|>
-        
-        {{ .Prompt }}<|eot_id|>{{ end }}<|start_header_id|>assistant<|end_header_id|>
-        
-        {{ .Response }}<|eot_id|>"""
-        
-        PARAMETER stop "<|start_header_id|>"
-        PARAMETER stop "<|end_header_id|>"
-        PARAMETER stop "<|eot_id|>"
-        EOF
-    커스텀 모델 생성 (빌드)   : ollama create [만들 모델 이름] -f [설계도 파일 경로]
-                       $ ./ollama-linux-amd64 create paprica-llm -f ./Modelfile
-    CLI 테스트 (질문 시작!)    : $ ./ollama-linux-amd64 run paprica-llm
-    모델명 조회      : $ ./ollama-linux-amd64 list
 
 
 ##################################
@@ -121,6 +140,7 @@ POC 개인 노트북 환경
                      갖도록 설정하는 것이 안전합니다.
 4) 응답 속도 (Latency): GPU가 없으므로 답변 한 줄씩 바로 화면에 뿌려주는 Streaming(Server-Sent Events, SSE) 방식을 
                        Vue.js와 연동하여 사용자 체감 속도를 높여야 합니다.
+5) systemd 서비스 등록           : 서버가 부팅될 때 자동으로 다시 켜지고, 죽어도 리눅스가 다시 살려냄.
       
 ############
 # 체크 완료 #

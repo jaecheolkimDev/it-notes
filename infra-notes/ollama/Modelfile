@@ -1,0 +1,43 @@
+# =========================================================================
+# Ollama 커스텀 모델 빌드를 위한 설정 파일 (Modelfile)
+# =========================================================================
+
+# 1. 베이스 모델 지정 (Hugging Face 등에서 다운로드한 GGUF 파일 경로)
+FROM ./Meta-Llama-3-8B-Instruct.Q4_K_M.gguf
+
+# 2. 시스템 프롬프트 (모델의 페르소나 및 기본 행동 지침 정의)
+SYSTEM """
+You are a helpful, professional AI assistant. You must always answer and respond in Korean (한국어).
+개발 관련 질문에는 친절하고 명확한 한글 코드로 답변해 주세요.
+"""
+
+# 3. 프롬프트 템플릿 (Llama 3 모델의 특수 토큰 포맷에 맞춘 대화 구조 정의)
+# *주의: 템플릿 구조나 토큰이 깨지면 모델이 대화 흐름을 인식하지 못하고 헛소리를 할 수 있습니다.
+TEMPLATE """{{ if .System }}<|start_header_id|>system<|end_header_id|>
+
+{{ .System }}<|eot_id|>{{ end }}{{ if .Prompt }}<|start_header_id|>user<|end_header_id|>
+
+{{ .Prompt }}<|eot_id|>{{ end }}<|start_header_id|>assistant<|end_header_id|>
+
+{{ .Response }}<|eot_id|>"""
+
+# 4. 자원 제한 및 성능 최적화 파라미터 (VM 환경에 맞춰 조절 필요)
+# -------------------------------------------------------------------------
+# [컨텍스트 창 크기 (기본값: 보통 4096~8192)]
+# - 모델이 한 번에 기억할 대화/기록의 토큰 총량입니다.
+# - 값을 줄일수록 모델이 사용하는 메모리(RAM/VRAM)량이 크게 감소합니다.
+PARAMETER num_ctx 2048
+
+# [CPU 스레드 제한 (기본값: 시스템 전체 코어 사용)]
+# - Ollama가 연산 시 사용할 물리적인 CPU 코어(스레드) 개수입니다.
+# - VM이 가진 전체 코어 수보다 낮게 잡아야 VM 내의 다른 프로세스(DB 등)가 먹통이 되지 않습니다.
+PARAMETER num_threads 4
+
+# 5. 대화 중단(Stop) 토큰 설정
+# -------------------------------------------------------------------------
+# - 모델이 답변을 생성하다가 아래 지정된 특수 토큰을 만나면 출력을 멈추도록 강제합니다.
+# - 무한 루프에 빠지거나, 유저 역할(<|start_header_id|>user)까지 혼자 북치고 장구치며 가짜 대화를 만들어내는 것을 방지합니다.
+PARAMETER stop "<|start_header_id|>"
+PARAMETER stop "<|end_header_id|>"
+PARAMETER stop "<|eot_id|>"
+E

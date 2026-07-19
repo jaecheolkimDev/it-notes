@@ -1,9 +1,9 @@
 Nginx Config
-=====================
+=================
 
 
 6\. 설정 파일
--------------------
+-----------
 `/etc/nginx/nginx.conf`파일을 읽음
 `/etc/nginx/conf.d/default.conf`    : `/etc/nginx/nginx.conf`에서 include하고 있음.
 ```
@@ -45,7 +45,7 @@ Nginx Config
 
 
 11\. 설정 파일 분리해서 관리하기 (include)
--------------------
+-----------
 ```
 1) server블록별로 conf파일을 하나씩 만든다.
 2) nginx.conf에서 `include /etc/nginx/conf.d/*.conf`하고 있음
