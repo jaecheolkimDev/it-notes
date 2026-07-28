@@ -10,9 +10,10 @@ DB TYPE
     NUMBER          : JAVA에서는 BigDecimal로 자동 매핑하기 때문에 다른 타입으로 받으면 ClassCastException 발생.
 ```
 
-2\. 
+2\. DATE
 -----------
 ```
+1) 날짜 조회시 TO_CHAR 사용    : TO_CHAR(DATE타입 컬럼, 'YYYYMMDD') = '20260630'
 ```
 
 

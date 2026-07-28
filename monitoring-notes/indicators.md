@@ -80,6 +80,9 @@ Circuit breaker 상태
 -----------------------
 ```
 Active users (DAU, MAU)
+ - DAU (Daily Active Users): 일간 활성 사용자 수 (하루 동안 방문한 순수 사용자)
+ - WAU (Weekly Active Users): 주간 활성 사용자 수 (한 주 동안 방문한 순수 사용자)
+ - MAU (Monthly Active Users): 월간 활성 사용자 수 (한 달 동안 방문한 순수 사용자)
 User session duration
 Conversion rate
 ```

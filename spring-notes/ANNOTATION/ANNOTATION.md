@@ -58,23 +58,6 @@ Spring Annotation
 4) @ConfigurationPropertiesScan("com.baeldung.configurationproperties")
 ```
 
-6\. @PersistenceContext(unitName = "user")
-------------------
-자바 JPA(Java Persistence API)에서 특정 데이터베이스 설정(영속성 유닛)과 연결된 EntityManager를 주입받기 위해 사용한다.
-주로 여러 개의 데이터베이스를 사용하거나, 별도의 설정 파일로 분리된 JPA 환경이 있을 때 명시적으로 대상을 지정하기 위해 사용합니다.
-```
-1) unitName = "user"
-    일반적으로 프로젝트에 데이터베이스가 하나라면 @PersistenceContext만 적어도 되지만, 하나의 애플리케이션에서 여러 DB를 동시에 
-    다룬다면 unitName으로 구분을 한다.
-
-2) @Autowired 와 비교
-구분      @PersistenceContext         @Autowired
-정체      JPA 표준 어노테이션            스프링 프레임워크 어노테이션
-유연성     다른 프레임워크로 이식 가능     스프링에 종속적
-동작 방식  트랜잭션 범위 내 프록시 주입    빈을 찾아 직접 주입
-추천      JPA를 명확히 표현하므로 권장    스프링 환경에서 간편해서 사용
-```
-
 7\. @EnableJpaRepositories
 ------------------
 Spring에게 JPA Repository 빈(Bean)들을 활성화하고 탐색하라고 지시하는 어노테이션입니다.
