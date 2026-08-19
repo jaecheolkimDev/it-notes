@@ -23,6 +23,13 @@ spring:
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      org:
+        hibernate:
+          envers:
+            # 감사 테이블의 접미사를 설정 (기본값은 _AUD)
+            audit_table_suffix: _A
 
 logging:
   level:

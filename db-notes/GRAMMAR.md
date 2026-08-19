@@ -30,9 +30,15 @@ DB 문법
  - ORDER BY 컬럼명 NULLS LAST           : NULL을 마지막에 정렬 시킨다.
 ```
 
-2\. 
+2\. CASE
 -----------
 ```
+CASE dept_no
+    WHEN 10 THEN '기획팀'
+    WHEN 20 THEN '개발팀'
+    WHEN 30 THEN '영업팀'
+    ELSE '기타'
+END AS dept_name
 ```
 
 3\. 조인

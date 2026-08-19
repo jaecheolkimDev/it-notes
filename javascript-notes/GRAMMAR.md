@@ -25,6 +25,7 @@ trgtResults.forEach(item => {
 });
 
 // filter() 총 몇 개인지 혹은 어떤 항목인지 정보가 필요하다면 이 방식이 좋습니다.
+//          조건에 맞는 데이터가 없다면 빈 배열을 반환하게 됩니다.
 const rejectedItems = trgtResults.filter(item => item.checkYn === 'N');
 
 // map()    : 배열의 각 요소를 돌며 내가 원하는 형태로 변형(매핑)한 새로운 배열을 반환합니다.
