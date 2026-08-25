@@ -10,7 +10,6 @@ Event -> Workflow -> Jobs -> Steps
 각 Job은 실제 명령을 수행하는 여러 개의 Step으로 이루어진 계층 구조랍니다.
 ```
 
-
 2\. 처음으로 Github Actions 작동시켜보기
 --------
 ```
@@ -171,3 +170,4 @@ steps:
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_PROJECT }}
             sudo docker run --name project -d -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_PROJECT }}
             sudo docker image prune -f
+```
