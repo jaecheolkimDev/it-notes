@@ -1,11 +1,11 @@
 Querydsl
-===========================================
+======================
 
 JPA를 사용할때 동적쿼리나 복잡한 쿼리들을 자바로 만들어 낼 수 있도록 도와주는 라이브러리.
 JPQL의 단점을 보완해서 문자가 아닌 코드로 작성함.
 
 1\. 타입 안정성(Type Safety) - QClass(QEntityName.java)
------------------------
+--------------
 ```
 Querydsl의 핵심은 "타입 안정성(Type Safety)"인데, 이를 가능하게 해주는 것이 바로 자동 생성된 QClass(QEntityName.java)입니다.
 - QClass 생성 확인: 설정을 마친 후, IDE에서 Maven -> Lifecycle -> compile을 실행해 보세요.

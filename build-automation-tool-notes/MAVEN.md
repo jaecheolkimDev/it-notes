@@ -1,5 +1,5 @@
 MAVEN
-===========================================
+======================
 
 
 1\. MAVEN 사용시
@@ -120,7 +120,7 @@ package : 소스코드를 컴파일해서 실행 파일로 묶어줍니다.
 
 
 5\. 인텔리제이
------------------------
+--------------
 ```
 1) File > Settings > Build, Execution, Deployment > Build Tools > Maven
         User settings file : 설정 파일

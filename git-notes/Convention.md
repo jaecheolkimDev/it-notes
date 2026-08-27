@@ -2,7 +2,7 @@ Git - Commit Message Convention
 ======================
 
 1\. Commit Type
------------------------
+--------------
 ```
 feat    : 새로운 기능 추가
 fix     : 버그 수정

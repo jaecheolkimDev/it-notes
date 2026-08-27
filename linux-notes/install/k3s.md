@@ -3,7 +3,7 @@
 
 
 1\. 설치
------------------------
+--------------
 ```
 $ curl -sfL https://get.k3s.io | sh - # k3s 설치
 $ sudo chmod 644 /etc/rancher/k3s/k3s.yaml # 권한 부여
