@@ -142,8 +142,8 @@ Password    : 마스터 암호(Aurora and RDS 데이터베이스 만들 때 정�
     만약 자신의 스프링 부트 프로젝트를 퍼블릭 깃허브 리포지토리에 업로드한다면 .gitignore를 활용하여 application.yml 파일을 제외해야 합니다.
 3) Spring Boot 서버가 RDS와 잘 연결되는 지 확인하기
  - 프로젝트를 내려받은 경로에서 다음 명령어를 입력하여 백엔드 서버를 실행하고, 정상으로 실행되는지 확인합니다.
-    $ sudo lsof -i:80 # 80번 포트에서 실행되는 프로세스 확인
-    $ sudo kill {PID 값} # 80번 포트에서 실행되는 프로세스가 있다면 종료
+    $ sudo lsof -i:80           : 80번 포트에서 실행되는 프로세스 확인
+    $ sudo kill {PID 값}         : 80번 포트에서 실행되는 프로세스가 있다면 종료
     $ cd ~/aws-rds-springboot
     $ ./gradlew clean build -x test # 스프링 부트 프로젝트 빌드
     $ cd build/libs
