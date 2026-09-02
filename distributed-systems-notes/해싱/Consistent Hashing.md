@@ -18,7 +18,7 @@
         폭풍(Rebalancing Storm)과 Massive Cache Miss가 발생합니다.
 ```
 
-3\. Consistent Hashing의 핵심 동작 원리
+3\. 핵심 동작 원리
 -----------
         [Server A (12시)]
           /         \
