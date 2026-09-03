@@ -31,7 +31,7 @@
 
 4\. 매니페스트 파일 작성하기
 -----------------------------
-[매니페스트](./Manifest-File/spring-pod/single.yaml)
+[매니페스트](Manifest-File/spring-pod/single.yaml)
 
 
 5\. 매니페스트 파일을 기반으로 파드(Pod) 생성하기
