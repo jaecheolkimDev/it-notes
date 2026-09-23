@@ -33,15 +33,6 @@ Window > Preferences > General > 'Show heap status'체크 후 Apply/OK
 
 브레이크포인트 베이스로 한단계/함수단위임 , 전체기반으로 한단계/함수단위 아님.!!!
 F6으로 함수단위로 건너뛰다가 문제가 발생한만한곳에서는 F5로 한단계씩 들어가야됨.
-
-[디버깅 모드로 Run할때]
-- JVM을 디버그 모드로 구동한 후, 런타임이 종료되지 않은 상태에서(WAS를 띄어놓은 것과 같은 상태) 클래스 파일의 변경이 감지되면 JVM 재시작 없이 변경된 클래스파일을 교체하는
-  'hot code replace' 기능을 제공한다.('hot deploy' 또는 'hot swap'이라고도 한다.)
-  수정한 내역을 바로 반영해서 디버그를 할 수 있게 해주는 기능이다.
-  Some code changes cannot be hot swapped into a running virtual machine, such as changing method names or introducing errors into running code.
-  The current target virtual machine [~~~~] from launch [main] was unalbed to replace the running code with the code in the workspace.
-  It is safe to continue running the application, but you may notice discrepancies when debugging this application.
-  Reason: Hot code replace failed - Scheme change not implemented
 ```
 
 5\. 

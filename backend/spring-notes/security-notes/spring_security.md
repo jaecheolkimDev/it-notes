@@ -7,7 +7,8 @@ Spring Security
 가장 상위에서 "현재 로그인한 사람의 정보"를 저장하는 저장소입니다.
 
 SecurityContextHolder   : SecurityContext를 담고 있는 보관함입니다. 
-                          기본적으로 ThreadLocal 방식을 사용하여, 한 스레드(하나의 요청) 내에서 어디서든 유저 정보에 접근할 수 있게 해줍니다.
+                          기본적으로 ThreadLocal 방식을 사용하여, 한 스레드(하나의 요청) 내에서 어디서든 유저 정보에 접근할 수 
+                          있게 해줍니다.
 
 SecurityContext         : 실제 Authentication 객체를 보관하는 인터페이스입니다.
 
@@ -38,7 +39,8 @@ PasswordEncoder             비밀번호를 안전하게 해싱하고 비교하�
 ---------------
 ```
 1) Http Request             : 사용자가 자원에 접근을 요청합니다.
-2) Filter Chain             : 여러 보안 필터를 거칩니다. (여기서 AnonymousAuthenticationFilter가 익명 토큰을 먼저 채워주기도 합니다.)
+2) Filter Chain             : 여러 보안 필터를 거칩니다. (여기서 AnonymousAuthenticationFilter가 익명 토큰을 먼저 채워주기도 
+                                합니다.)
 3) AuthenticationFilter     : 로그인 요청 시, 사용자가 보낸 정보를 취합해 Authentication 객체를 만듭니다.
 4) Manager & Provider       : 위에서 만든 객체를 검증(DB 대조 등)합니다.
 5) SecurityContextHolder    : 인증이 성공하면 최종적으로 SecurityContext에 인증된 정보를 저장합니다.

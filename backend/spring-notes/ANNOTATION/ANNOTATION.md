@@ -1,7 +1,6 @@
 Spring Annotation
 =================
 
-
 1\.@Annotations
 ------------------
 ```

@@ -6,7 +6,6 @@ OAuth(Open Authorization)
 대신 '접근 토큰(Access Token)'을 받아 안전하게 데이터를 주고받는 방식으로 작동하며, 
 권한을 세부적으로 제어하고 언제든 해지할 수 있는 장점이 있습니다.
 
-
 0\. 용어
 ---------------
 ```
@@ -15,7 +14,6 @@ OAuth(Open Authorization)
 - 인가 서버 (Authorization Server): 사용자의 신원을 확인하고 클라이언트에게 접근 권한을 부여하는 서버.
 - 리소스 서버 (Resource Server)   : 사용자의 데이터(리소스)를 저장하고 있는 서버 (예: 구글 드라이브). 
 ```
-
 
 1\. Spring Security OAuth2 기본 경로(Default Endpoint)
 ---------------
@@ -29,5 +27,4 @@ OAuth(Open Authorization)
 /oauth/check_token: 토큰이 유효한지 확인하는 주소
 
 /oauth/confirm_access: 접근 승인 여부를 묻는 주소
-
 ```

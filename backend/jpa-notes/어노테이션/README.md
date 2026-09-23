@@ -1,7 +1,6 @@
 JPA 어노테이션
 ======================
 
-
 1\. @EntityListeners({AuditingEntityListener.class, RegistrationEventListener.class})
 --------------
 ```

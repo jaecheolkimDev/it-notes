@@ -7,7 +7,6 @@ JWT(Json Web Token)
 HTTP 요청 헤더 중에 Authorization 키값에 Bearer + JWT토큰값을 넣어 보내야 합니다.
 ```
 
-
 2\. 구조
 ---------------
 ```
