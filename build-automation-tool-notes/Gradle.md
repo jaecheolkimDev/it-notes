@@ -10,3 +10,4 @@ Gradle
 
 - 주요 옵션:
     - `-x test` : (exclude) test를 제외하고 실행 
+```

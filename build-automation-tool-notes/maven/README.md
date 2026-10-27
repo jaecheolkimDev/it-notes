@@ -87,8 +87,7 @@ package : 소스코드를 컴파일해서 실행 파일로 묶어줍니다.
     <artifactId>: 프로젝트의 결과물(Jar, War 등)의 이름입니다.
                   버전이 없는 jar 파일의 이름으로 ArtifactId는 프로젝트의 이름으로 사용됨
     <version>: 프로젝트의 현재 버전입니다. 보통 1.0.0-SNAPSHOT처럼 상태를 명시하기도 합니다.
-    <packaging> : 프로젝트가 빌드된 후 어떤 형태로 묶일지 결정합니다. (jar, war, pom 등)
-                생략하면 기본값(Default)으로 jar를 적용합니다.
+    <packaging>
 
 2. 의존성 관리 (Dependencies)
     외부 라이브러리를 가져올 때 가장 많이 수정하게 되는 부분입니다.

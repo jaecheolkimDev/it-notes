@@ -15,8 +15,6 @@ Spring Annotation
  [ AOP 등록할때 사용하는 어노테이션 ]
  - 특징 : HTTP 요청뿐만 아니라, 자바 코드 내에서 특정 메서드가 실행되는 모든 순간에 개입할 수 있습니다.
  - 용도 : 실행 시간 측정, 트랜잭션 처리(@Transactional), 특정 메서드 보안 검사 등.
- 
-@Qualifier : 자동 주입 가능한 빈이 두 개 이상이면 자동 주입할 빈을 지정할 수 있는 방법이 필요하다.
 
 @EnableBatchProcessing
 ```
