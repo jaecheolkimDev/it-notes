@@ -19,7 +19,7 @@ Tanzu는 클러스터의 '생애주기(Lifecycle)' 자체를 인프라 단에서
   - 관찰 대상 : CPU, RAM, Disk, OS 프로세스, 네트워크 장비
 ```
 
-3\. JENNIFER
+3\. JENNIFER (제니퍼)
 --------------
 ```
   - 웹 애플리케이션의 성능을 실시간으로 관리하고 최적화하는 APM(Application Performance Monitoring) 솔루션.
